@@ -44,7 +44,7 @@ class TestAchievement extends PHPUnit_Framework_TestCase {
 
   public function testSaveRequirement(){
     echo "test saving requirements";
-    $this->r->achievement_id = $this->a->id;
+    // $this->r->achievement_id = $this->a->id;
     $this->assertTrue($this->r->save());
   }
 
@@ -55,23 +55,23 @@ class TestAchievement extends PHPUnit_Framework_TestCase {
     // $this->assertEquals($r->achievement_id, $a->id);
   // }
 
-  public static function makeAchievement()
-  {
-      $a = new Achievement();
-      $a->name = 'tester';
-      $a->value = 20.00;
-      $a->description = 'effing awesome';
-      return $a;
-  }
+  // public static function makeAchievement()
+  // {
+      // $a = new Achievement();
+      // $a->name = 'tester';
+      // $a->value = 20.00;
+      // $a->description = 'effing awesome';
+      // return $a;
+  // }
 
-  public static function makeRequirement()
-  {
-    $r = new Requirement();
-    // $r->$achievement_id = $a_id;
-    // $r->$noun = $noun;
-    // $r->$verb = $verb;
-    // $r->$value = $value;
-    return $r;
-  }
+  // public static function makeRequirement()
+  // {
+    // $r = new Requirement();
+    $r->$achievement_id = $a_id;
+    $r->$noun = $noun;
+    $r->$verb = $verb;
+    $r->$value = $value;
+    // return $r;
+  // }
 
 }
