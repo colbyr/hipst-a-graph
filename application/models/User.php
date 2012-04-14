@@ -12,7 +12,7 @@ class User extends Aware
 
     /**
      * [Many to Many] Achievements
-     *
+    * 
      * @return array
      */
     public function achievements()
@@ -20,5 +20,11 @@ class User extends Aware
         $this -> has_many_and_belongs_to('Achievements');
     }
 
-
+    /**
+    *
+    *Aware rules
+    *
+    */
+    public static $rules = array (
+        )
 }

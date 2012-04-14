@@ -13,4 +13,13 @@ class Achievement extends Aware
         $this -> has_many_and_belongs_to('Requirements');
     }
 
+    /**
+    *
+    * Aware validation
+    *
+    */
+    public static $rules = array (
+        'name' => 'required'
+        'value' => 'required');
+
 }
