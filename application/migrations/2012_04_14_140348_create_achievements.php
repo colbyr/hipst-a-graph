@@ -25,7 +25,7 @@ class Create_Achievements {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
+		Schema::drop('achievements');
 	}
 
 }
