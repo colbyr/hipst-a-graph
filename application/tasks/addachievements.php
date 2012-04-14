@@ -12,9 +12,7 @@ class addachievements_task
     */
     public function run($arguments)
     {
-        echo getcwd();
         $file_string = file_get_contents(getcwd()."/application/tasks/achievements.json");
-        print_r($file_string);
         $jason = json_decode($file_string);
         foreach ($jason as $key => $value) 
         {
@@ -32,11 +30,6 @@ class addachievements_task
                     $requirement->noun,
                      $requirement->verb,
                       $requirement->value);
-                if(!$r->save())
-                {
-                    echo "requirement:".$r->noun."did not save with a_id:".$r->achievement_id;
-
-                }
                 $a->requirements()->insert($r);
             }
 
