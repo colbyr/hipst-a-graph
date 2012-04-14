@@ -34,15 +34,17 @@ class User extends Aware
      *
      * @return void
      */
-    public function api()
+    public function sync_api()
     {
         $oauth = OauthHelper::authed($this->oauth_token, $this->oauth_token_secret);
         try {
             $data = $oauth->fetch("http://openapi.etsy.com/v2/users/__SELF__", null, OAUTH_HTTP_METHOD_GET);
             $json = $oauth->getLastResponse();
-            echo '<pre>';
-            print_r(json_decode($json, true));
-            exit();
+            $res = json_decode($json, true);
+            $res = $res['results'][0];
+            $this->user_id = $res['user_id'];
+            $this->login_name = $res['login_name'];
+            $this->primary_email = $res['primary_email'];
         } catch (OAuthException $e) {
             error_log($e->getMessage());
             error_log(print_r($oauth->getLastResponse(), true));
