@@ -20,9 +20,6 @@ return array(
     // Requests Library
     'requests' => array(
         'auto' => true
-    ),
-
-    // Oauth-2
-    'laravel-oauth2'
+    )
 
 );
