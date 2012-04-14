@@ -15,16 +15,24 @@ class addachievements_task
             $a->name = $value->name;
             $a->value = $value->value; 
             $a->description = $value->description;  
-            print_r($a);
-            // if(!$a->save())
-            // {
-            //     echo "you don fucked up";
-            // }
-            foreach($value->requirement as $requirement => $rvalue)
+            if(!$a->save())
             {
-                print_r($rvalue);
-
+                echo "achievement with name:".$a->name."did not save";
             }
+            foreach($value->requirements as $requirement)
+            {
+                $r = new Requirement();
+                $requirement->noun;
+                $requirement->verb;
+                $requirement->value;
+                $r->achievement_id = $a->id;
+                if(!$r->save())
+                {
+                    echo "requirement:".$r->noun."did not save";
+
+                }
+            }
+
         }
     }
 
