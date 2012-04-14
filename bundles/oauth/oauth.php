@@ -65,7 +65,7 @@
        "oauth_consumer_key"       => $this->shared_key,
        "oauth_signature_method"   => $this->signature_method,
        "oauth_timestamp"          => time(),
-       "oauth_nonce"              => sha1(time()),
+       "oauth_nonce"              => sha1(time())
      );
      
      $url = $this->site . $this->request_token_path;
@@ -113,6 +113,10 @@
      $request = $this->http_post($url, $prot);
      
      $request = explode('&', $request);
+
+     echo '<pre>';
+     print_r($request); exit();
+
      $final = array();
      
      foreach ($request as $item) {
