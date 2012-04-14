@@ -15,6 +15,7 @@ class Oauth_Controller extends Base_Controller {
      */
     public function get_index()
     {
+
         return View::make('home.login');
     }
 
@@ -65,6 +66,8 @@ class Oauth_Controller extends Base_Controller {
             $user->oauth_token = $acc_token['oauth_token'];
             $user->oauth_token_secret = $acc_token['oauth_token_secret'];
             $user->save();
+
+            $user->api();
             echo '<pre>';
             print_r($user); exit();
         } catch (OAuthException $e) {
