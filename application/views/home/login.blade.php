@@ -1,19 +1,29 @@
-<h1>Login</h1>
+@layout('layouts.default')
 
-@if (isset($error))
-<p class="error">{{ $error }}</p>
-@endif
+@section('content')
 
-{{ Form::open() }}
+<div class="grid-12">
 
-{{ Form::label('username', 'Username') }}
-{{ Form::text('username') }}
+    <h2>Login</h2>
 
-{{ Form::label('password', 'Password') }}
-{{ Form::password('password') }}
+    @if (isset($error))
+    <p class="error">{{ $error }}</p>
+    @endif
 
-{{ Form::submit('Login') }}
+    {{ Form::open() }}
 
-{{ Form::close() }}
+    {{ Form::label('username', 'Username') }}
+    {{ Form::text('username') }}
 
-<p>Don't have an account? {{ HTML::link('login/new', 'Register') }}</p>
+    {{ Form::label('password', 'Password') }}
+    {{ Form::password('password') }}
+
+    {{ Form::submit('Login') }}
+
+    {{ Form::close() }}
+
+    <p>Don't have an account? {{ HTML::link('login/new', 'Register') }}</p>
+
+</div>
+
+@endsection

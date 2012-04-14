@@ -9,17 +9,28 @@ class addachievements_task
         $file_string = file_get_contents(getcwd()."/application/tasks/achievements.json");
         print_r($file_string);
         $jason = json_decode($file_string);
-        foreach ($jason as $key => $value) {
+        foreach ($jason as $key => $value) 
+        {
             $a = new Achievement();
             $a->name = $value->name;
             $a->value = $value->value; 
             $a->description = $value->description;  
             print_r($a);
-            if(!$a->save())
+            // if(!$a->save())
+            // {
+            //     echo "you don fucked up";
+            // }
+            foreach($value->requirement as $requirement => $rvalue)
             {
-                echo "you don fucked up";
+                print_r($rvalue);
+
             }
         }
     }
+
+    // private function new_requirement($rvalue)
+    // {
+
+    // }
 
 }
