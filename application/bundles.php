@@ -20,6 +20,8 @@ return array(
     // Requests Library
     'requests' => array(
         'auto' => true
-    )
+    ),
+
+    'oauth'
 
 );
