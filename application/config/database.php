@@ -42,7 +42,7 @@ return array(
 	|
 	*/
 
-	'default' => 'sqlite',
+	'default' => 'mysql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return array(
 		'mysql' => array(
 			'driver'   => 'mysql',
 			'host'     => 'localhost',
-			'database' => 'hipst-a-graph',
+			'database' => 'hipsta',
 			'username' => 'root',
 			'password' => 'root',
 			'charset'  => 'utf8',
