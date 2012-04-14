@@ -28,16 +28,16 @@ class addachievements_task
             }
             foreach($value->requirements as $requirement)
             {
-                $r = new Requirement();
-                $requirement->noun;
-                $requirement->verb;
-                $requirement->value;
-                $r->achievement_id = $a->id;
+                $r = Requirement::make_or_retrieve(
+                    $requirement->noun,
+                     $requirement->verb,
+                      $requirement->value);
                 if(!$r->save())
                 {
                     echo "requirement:".$r->noun."did not save with a_id:".$r->achievement_id;
 
                 }
+                $a->requirements()->insert($r);
             }
 
         }

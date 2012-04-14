@@ -23,6 +23,7 @@ class Requirement extends Aware
         $r = static::where_value($value)->where_verb($verb)->where_noun($noun)->first();
         if (is_null($r))
         {
+            echo "sex";
             $r = new Requirement();
             $r->value = $value;
             $r->verb = $verb;
