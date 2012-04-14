@@ -8,7 +8,7 @@ class User extends Aware
      * Accessible
      *  for mass-assignment...
      */
-    public static $accessable = array();
+    public static $accessable = array('username', 'password');
 
     /**
      * [Many to Many] Achievements
@@ -25,7 +25,9 @@ class User extends Aware
      *
      * @var array
      */
-    public static $rules = array ();
+    public static $rules = array (
+        'username' => 'required'
+        'password' => 'required|min:6');
 
     /**
      * API
