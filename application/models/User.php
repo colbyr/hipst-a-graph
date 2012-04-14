@@ -32,7 +32,7 @@ class User extends Aware
      *
      * get the use data from the api
      *
-     * @return void
+     * @return bool
      */
     public function sync_api()
     {
@@ -45,11 +45,12 @@ class User extends Aware
             $this->user_id = $res['user_id'];
             $this->login_name = $res['login_name'];
             $this->primary_email = $res['primary_email'];
+            return true;
         } catch (OAuthException $e) {
-            error_log($e->getMessage());
-            error_log(print_r($oauth->getLastResponse(), true));
-            error_log(print_r($oauth->getLastResponseInfo(), true));
-            exit;
+            Log::error($e->getMessage());
+            Log::error(print_r($oauth->getLastResponse(), true));
+            Log::error(print_r($oauth->getLastResponseInfo(), true));
+            return false;
         }
     }
 

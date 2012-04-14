@@ -65,8 +65,12 @@ class Oauth_Controller extends Base_Controller {
             $user = new User();
             $user->oauth_token = $acc_token['oauth_token'];
             $user->oauth_token_secret = $acc_token['oauth_token_secret'];
-            $user->sync_api();
-            $user->save();
+
+            if ($user->sync_api()) {
+                echo 'saved';
+                $user->save();
+            }
+            
             echo '<pre>';
             print_r($user); exit();
         } catch (OAuthException $e) {
