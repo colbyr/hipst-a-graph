@@ -10,7 +10,7 @@ class Login_Controller extends Base_Controller {
 
     public function __construct()
     {
-        $this->filter('before', 'authed')->only(array('index', 'new'));
+        $this->filter('before', 'authed')->except('leave');
 
         parent::__construct();
     }
