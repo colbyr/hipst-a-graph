@@ -17,7 +17,7 @@ class TestAchievement_Requiements extends PHPUnit_Framework_TestCase {
         if($this->a != null)
         $this->a->delete();
         if($this->r != null)
-        $this->r->delete();   
+        $this->r->delete();
     }
 
     public function testSaveAchievment()
