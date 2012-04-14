@@ -22,7 +22,7 @@ return array(
 	{
 		if (filter_var($id, FILTER_VALIDATE_INT) !== false)
 		{
-			return DB::table('users')->find($id);
+			return User::find($id);
 		} 
 	},
 
@@ -42,7 +42,7 @@ return array(
 	|
 	*/
 
-	'attempt' => function($username)
+	'attempt' => function($username, $password)
 	{
 		$user = DB::table('users')->where_username($username)->first();
 

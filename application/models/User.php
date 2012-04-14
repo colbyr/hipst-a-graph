@@ -25,9 +25,10 @@ class User extends Aware
      *
      * @var array
      */
-    public static $rules = array (
-        'username' => 'required'
-        'password' => 'required|min:6');
+    public static $rules = array(
+            'username' => 'required',
+            'password' => 'required|min:6'
+        );
 
     /**
      * API
