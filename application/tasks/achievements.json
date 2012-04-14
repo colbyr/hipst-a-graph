@@ -4,7 +4,83 @@
 	"description":"You bought something!",	
 },
 {
-	"name":"asdf"
+	"name":"Look at All my Shiny Trinkets",
 	"value":15,
-	"description":"You bought 10 things!"
-	}]
+	"description":"You bought 10 things!",
+},
+{
+    "name":"All Around the World",
+    "value":10,
+    "description":"You bought something from another country!",
+},
+{
+	"name":"Methodical Shopper",
+	"value":10,
+	"description":"You bought something from X catagory!",            //%cat%?
+},
+{
+	"name":"Big Spender",
+	"value":15,
+	"description":"Spent over X$ on a single item!", //<--change
+},
+{
+	"name":"I bought that before it was cool...",
+	"value":25,
+	"description":"You were the first one to buy this item!",
+},
+{
+	"name":"Shopkeep!",
+	"value":20,
+	"description":"You have a store!",
+},
+{
+	"name":"Big Business",
+	"value":30,
+	"description":"Own 2 or more stores!",
+},
+{
+	"name":"Distributor",
+	"value":15,
+	"description":"You sold $X.XX!", //<--change
+},
+{
+	"name":"You want it? I got it.",
+	"value":20,
+	"description":"You sold in multiple catagories!",
+},
+{
+	"name":"15 Minutes of Fame",
+	"value":50,
+	"description":"Become a featured seller",
+},
+{
+	"name":"Role Model",
+	"value":30,
+	"description":"Obtain 90% or better feedback",
+},
+{
+	"name":"Hey, I know you!",
+	"value":5,
+	"description":"Add 10 people to your circles",
+},
+{
+	"name":"The Lover",
+	"value":5,
+	"description":"Loved X things", //decide&change
+},
+{
+	"name":"",
+	"value":5,
+	"description":"Loved X catagories", //decide and change
+},
+{
+	"name":"",
+	"value":5,
+	"description":"Have a profile picture",
+},
+{
+	"name":"",
+	"value":10,
+	"description":"Had an account for X d/m/y", //decide and change
+},
+	]
