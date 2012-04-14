@@ -1,7 +1,7 @@
 <?php
 class Achievement extends Aware
 {
-    public static $accessible = array('name', 'value');
+    public static $accessible = array('name', 'value', 'description');
 
     public function users()
     {
