@@ -17,7 +17,7 @@ class User extends Aware
      */
     public function achievements()
     {
-        return $this -> has_many_and_belongs_to('Achievements');
+        return $this -> has_many_and_belongs_to('Achievement');
     }
 
     /**
@@ -25,10 +25,10 @@ class User extends Aware
      *
      * @var array
      */
-    public static $rules = array(
-            'username' => 'required',
-            'password' => 'required|min:6'
-        );
+    // public static $rules = array(
+            // 'username' => 'required',
+            // 'password' => 'required|min:6'
+        // );
 
     /**
      * API

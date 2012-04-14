@@ -11,7 +11,7 @@ class Create_Achievements {
 	{
       Schema::create('achievements', function($table) {
         $table->increments('id');
-        $table->string('name', 255)->unique();
+        $table->string('name', 255);//->unique();
         $table->float('value');
         $table->text('description');
         $table->timestamps();

@@ -9,7 +9,7 @@ class Create_User_Achievement_Pivot {
 	 */
 	public function up()
 	{
-		Schema::create('user_achievement', function ($table) {
+		Schema::create('achievement_user', function ($table) {
 			$table->increments('id');
 			$table->integer('user_id')->index();
 			$table->integer('achievement_id')->index();
@@ -24,7 +24,7 @@ class Create_User_Achievement_Pivot {
 	 */
 	public function down()
 	{
-		Schema::drop('user_achievement');
+		Schema::drop('achivement_user');
 	}
 
 }
