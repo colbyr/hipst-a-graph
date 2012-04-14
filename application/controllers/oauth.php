@@ -46,9 +46,6 @@ class Oauth_Controller extends Base_Controller {
      */
     public function get_callback()
     {
-        echo __FUNCTION__ . PHP_EOL;
-
-
         // get temporary credentials from the url
         $request_token = Input::get('oauth_token');
 
@@ -64,12 +61,10 @@ class Oauth_Controller extends Base_Controller {
         try {
             // set the verifier and request Etsy's token credentials url
             $acc_token = $oauth->getAccessToken("http://openapi.etsy.com/v2/oauth/access_token", null, $verifier);
-            echo 'got it' . PHP_EOL;
             print_r($acc_token);
         } catch (OAuthException $e) {
             echo($e->getMessage());
-        }
-        
+        }       
     }
 
 }
