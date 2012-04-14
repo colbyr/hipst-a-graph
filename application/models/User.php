@@ -58,6 +58,18 @@ class User extends Aware
     }
 
     /**
+     * Oauth 
+     *
+     * Get an oauth object for this user
+     *
+     * @return Oauth
+     */
+    public function oauth()
+    {
+        return OauthHelper::authed($this->oauth_token, $this->oauth_token_secret);
+    }
+
+    /**
      * Check and Hash new password
      *
      * @return void

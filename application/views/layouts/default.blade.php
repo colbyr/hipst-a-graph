@@ -26,7 +26,7 @@
 <div class="grids header">
 
     <div class="grid-8">
-        <h1>Hipst-a-graph</h1>
+        <h1>{{ HTML::link('/', 'Hipst-a-graph') }}</h1>
     </div>
 
     <div class="grid-4 text-right">

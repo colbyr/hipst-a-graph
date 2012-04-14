@@ -13,7 +13,7 @@
     {{ Form::open() }}
 
     {{ Form::label('username', 'Username') }}
-    {{ Form::text('username') }}
+    {{ Form::text('username', '', array('autofocus'=>'autofocus')) }}
 
     {{ Form::label('password', 'Password') }}
     {{ Form::password('password') }}
