@@ -56,6 +56,7 @@ class Login_Controller extends Base_Controller {
         $user->password = Input::get('password');
         
         if ($user->save()) {
+            Auth::login($user);
             return Redirect::to('user/profile');
         }
         else
