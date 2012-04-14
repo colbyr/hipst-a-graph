@@ -56,4 +56,38 @@ class User extends Aware
         }
     }
 
+    /**
+     * Check and Hash new password
+     *
+     * @return void
+     */
+    public function checkAndHash()
+    {
+        // if there's a new password, hash it
+        if($this->changed('password'))
+        {
+            $this->set_password(Hash::make($this->password));
+        }
+    }
+    /**
+     * onSave
+     *
+     * @return bool
+     */
+    public function onSave()
+    {
+        $this->checkAndHash();
+        return parent::onSave();
+    }
+    /**
+     * onForceSave
+     *
+     * @return bool
+     */
+    public function onForceSave()
+    {
+        $this->checkAndHash();
+        return parent::onForceSave();
+    }
+
 }
