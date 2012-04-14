@@ -2,52 +2,51 @@
 
 class TestAchievement_Requiements extends PHPUnit_Framework_TestCase {
 
-  protected function setUp()
-  {
-    $a = static::makeAchievement();
-    $a->save();
-    $r = static::makeRequirement();
-    $r->save();
-  }
+   protected $a;
+   protected $r;
 
-    /**
-     * Test that a given condition is met.
-     *
-     * @return void
-     */
-    public function testSomethingIsTrue()
+    protected function setUp()
     {
-        $this->assertTrue(true);
+        echo "set up";
+        $this->a = static::makeAchievement();
+        $this->r = static::makeRequirement();
+    }
+
+    protected function tearDown()
+    {
+        if($this->a != null)
+        $this->a->delete();
+        if($this->r != null)
+        $this->r->delete();   
     }
 
     public function testSaveAchievment()
     {
-        $this->assertTrue($a->save());
-        $a->delete();
+        echo "test saving Achievements";
+        $this->assertTrue($this->a->save());
     }
 
     public function testSaveRequirement()
     {
-        $this->assertTrue($r->save());
-        $r->delete();
+        echo "test saving requirements";
+        $this->assertTrue($this->r->save());
     }
 
-    public static function testSaveRequirement()
+    public function testAddRequirement()
     {
-        $a->save();
-        $r->save();
-        $a->insert($r);
-        print_r($a->requirements()->get());
-        assertEquals(1, count($a->requirements()->get()));
-        $r->delete();
-        $a->delete();
+        echo "test add Requirements";
+        $this->a->save();
+        $this->r->save();
+        $this->a->requirements()->insert($this->r);
+        print_r($this->a->requirements()->get());
+        $this->assertEquals(1, count($this->a->requirements()->get()));
     }
 
 
     public static function makeAchievement()
     {
         $a = new Achievement();
-        $a->name = 'test';
+        $a->name = 'test5';
         $a->value = 20.00;
         $a->description = 'effing awesome';
         return $a;
@@ -56,7 +55,7 @@ class TestAchievement_Requiements extends PHPUnit_Framework_TestCase {
     public static function makeRequirement()
     {
         $r = new Requirement();
-        $r->noun = 'test';
+        $r->noun = 'test1';
         $r->value = 20.00;
         $r->verb = 'different';
         return $r;

@@ -14,7 +14,7 @@ class Achievement extends Aware
      */
     public function users()
     {
-        $this->has_many_and_belongs_to('User');
+        return $this->has_many_and_belongs_to('User');
     }
 
     /**
@@ -24,7 +24,7 @@ class Achievement extends Aware
      */
     public function requirements()
     {
-        $this->has_many_and_belongs_to('Requirement');
+        return $this->has_many('Requirement');
     }
 
     // /**
