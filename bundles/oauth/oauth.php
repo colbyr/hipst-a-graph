@@ -16,6 +16,7 @@
  class Oauth {
    
    public $site = "";
+   public $auth_site = "";
    public $request_token_path = "oauth/request_token";
    public $access_token_path = "oauth/access_token";
    public $authorize_path = "oauth/authorize";
@@ -88,7 +89,7 @@
    }
    
    public function get_user_authorization() {
-     $url = $this->site . $this->authorize_path;
+     $url = (empty($this->auth_site) ? $this->site : $this->auth_site) . $this->authorize_path;
      $token = $this->request_token;
      
      $url .= "?oauth_token=".$token."&oauth_callback=".$this->base_url.$this->callback;
