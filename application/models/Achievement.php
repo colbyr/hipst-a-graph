@@ -18,13 +18,13 @@ class Achievement extends Aware
     }
 
     /**
-     * [One to Many] requirements
+     * [Many to Many] requirements
      * 
      * @return array
      */
     public function requirements()
     {
-        return $this->has_many('Requirement');
+        return $this->has_many_and_belongs_to('Requirement');
     }
 
     // /**

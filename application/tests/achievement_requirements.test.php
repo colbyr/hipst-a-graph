@@ -32,6 +32,17 @@ class TestAchievement_Requiements extends PHPUnit_Framework_TestCase {
         $this->assertTrue($this->r->save());
     }
 
+    public function testAddRequirement()
+    {
+        echo "test add Requirements";
+        $this->a->save();
+        $this->r->save();
+        $this->a->requirements()->insert($this->r);
+        print_r($this->a->requirements()->get());
+        $this->assertEquals(1, count($this->a->requirements()->get()));
+    }
+
+
     public static function makeAchievement()
     {
         $a = new Achievement();
