@@ -2,7 +2,14 @@
 
 class addachievements_task
 {
-
+    /**
+    *
+    * A task that populates the achievements by reading from a json file.
+    * Expects requirements to be embedded inside of the achievement that 
+    * requires them. After completion the database should be full of achievements
+    * and requirements.  
+    *
+    */
     public function run($arguments)
     {
         echo getcwd();
@@ -28,17 +35,12 @@ class addachievements_task
                 $r->achievement_id = $a->id;
                 if(!$r->save())
                 {
-                    echo "requirement:".$r->noun."did not save";
+                    echo "requirement:".$r->noun."did not save with a_id:".$r->achievement_id;
 
                 }
             }
 
         }
     }
-
-    // private function new_requirement($rvalue)
-    // {
-
-    // }
 
 }
