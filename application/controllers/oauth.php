@@ -61,7 +61,12 @@ class Oauth_Controller extends Base_Controller {
         try {
             // set the verifier and request Etsy's token credentials url
             $acc_token = $oauth->getAccessToken("http://openapi.etsy.com/v2/oauth/access_token", null, $verifier);
-            print_r($acc_token);
+            $user = new User();
+            $user->oauth_token = $acc_token['oauth_token'];
+            $user->oauth_token_secret = $acc_token['oauth_token_secret'];
+            $user->save();
+            echo '<pre>';
+            print_r($user); exit();
         } catch (OAuthException $e) {
             echo($e->getMessage());
         }       
