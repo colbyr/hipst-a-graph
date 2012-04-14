@@ -1,9 +1,12 @@
 <?php
+
+
 class User extends Aware
 {
     
     /**
-     * Accessible - for mass-assignment...
+     * Accessible
+     *  for mass-assignment...
      */
     public static $accessable = array('email');
 
