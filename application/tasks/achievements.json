@@ -3,127 +3,127 @@
 	"value":5,
 	"description":"You bought something!",
 	"requirements":[
-		{"noun":"item", "verb":"eqogt", "value": "1",},
-		{}]	
+		{"noun":"item", "verb":"eqogt", "value": "1"}
+	]	
 },
 {
 	"name":"Look at All my Shiny Trinkets",
 	"value":15,
 	"description":"You bought 10 things!",
 	"requirements":[
-		{"noun":"item", "verb":"eqogt", "value":"10",},
-		{}]
+		{"noun":"item", "verb":"eqogt", "value":"10"}
+	]
 },
 {
     "name":"All Around the World",
     "value":10,
     "description":"You bought something from another country!",
     "requirements":[
-		{"noun":"item", "verb":"noteq", "value":"1",},
-		{}]
+		{"noun":"item", "verb":"noteq", "value":"1"}
+	]
 },
 {
 	"name":"Methodical Shopper",
 	"value":10,
-	"description":"You bought something from X catagory!",            //%cat%?
+	"description":"You bought something from X catagory!",            
 	"requirements":[
-		{"noun":"itemfromcat", "verb":"eqogt", "value":"1",},
-		{}]
+		{"noun":"itemfromcat", "verb":"eqogt", "value":"1"}
+	]
 },
 {
 	"name":"Big Spender",
 	"value":15,
 	"description":"Spent over $50 on a single item!", 
 	"requirements":[
-		{"noun":"item", "verb":"eqogt", "value":"50",},
-		{}]
+		{"noun":"item", "verb":"eqogt", "value":"50"}
+	]
 },
 {
 	"name":"I bought that before it was cool...",
 	"value":25,
 	"description":"You were the first one to buy this item!",
 	"requirements":[
-		{"noun":"item1", "verb":"eq", "value":"1",},
-		{}]
+		{"noun":"item1", "verb":"eq", "value":"1"}
+	]
 },
 {
 	"name":"Shopkeep!",
 	"value":20,
 	"description":"You have a store!",
 	"requirements":[
-		{"noun":"store", "verb":"eqogt", "value":"1",},
-		{}]
+		{"noun":"store", "verb":"eqogt", "value":"1"}
+	]
 },
 {
 	"name":"Big Business",
 	"value":30,
 	"description":"Own 2 or more stores!",
 	"requirements":[
-		{"noun":"store", "verb":"eqogt", "value":"2",},
-		{}]
+		{"noun":"store", "verb":"eqogt", "value":"2"}
+	]
 },
 {
 	"name":"Distributor",
 	"value":15,
 	"description":"You sold $50 of stuff!", 
 	"requirements":[
-		{"noun":"isold", "verb":"eqogt", "value":"50",},
-		{}]
+		{"noun":"isold", "verb":"eqogt", "value":"50"}
+	]
 },
 {
 	"name":"You want it? I got it.",
 	"value":20,
 	"description":"You sold in multiple catagories!",
 	"requirements":[
-		{"noun":"isold", "verb":"eqogt", "value":"2",},
-		{}]
+		{"noun":"isold", "verb":"eqogt", "value":"2"}
+	]
 },
 {
 	"name":"Role Model",
 	"value":30,
 	"description":"Obtain 90% or better feedback",
 	"requirements":[
-		{"noun":"fbck", "verb":"eqogt", "value":"90",},
-		{}]
+		{"noun":"fbck", "verb":"eqogt", "value":"90"}
+		]
 },
 {
 	"name":"Hey, I know you!",
 	"value":5,
 	"description":"Add 10 people to your circles",
 	"requirements":[
-		{"noun":"circppl", "verb":"eqogt", "value":"10",},
-		{}]
+		{"noun":"circppl", "verb":"eqogt", "value":"10"}
+	]
 },
 {
 	"name":"The Lover",
 	"value":5,
 	"description":"Loved 10 things", 
 	"requirements":[
-		{"noun":"numloved", "verb":"eqogt", "value":"10",},
-		{}]
+		{"noun":"numloved", "verb":"eqogt", "value":"10"}
+	]
 },
 {
 	"name":"",
 	"value":5,
 	"description":"Loved 3 catagories", 
 	"requirements":[
-		{"noun":"catsloved", "verb":"eqogt", "value":"3",},
-		{}]
+		{"noun":"catsloved", "verb":"eqogt", "value":"3"}
+	]
 },
 {
 	"name":"",
 	"value":5,
 	"description":"Have a profile picture",
 	"requirements":[
-		{"noun":"profpic", "verb":"eq", "value":"1",},
-		{}]
+		{"noun":"profpic", "verb":"eq", "value":"1"}
+	]
 },
 {
 	"name":"",
 	"value":10,
 	"description":"Had an account for 30 days", 
 	"requirements":[
-		{"noun":"accttime" , "verb":"eqogt" , "value":"30",},
-		{}]
-}
+		{"noun":"accttime" , "verb":"eqogt" , "value":"30"}
 	]
+}
+]
