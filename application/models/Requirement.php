@@ -1,6 +1,17 @@
 <?php
 class Requirement extends Aware
 {
+
+    /**
+     *
+     * Aware validation 
+     *
+     */
+    public static $rules = array(
+            'noun' => 'required',
+            'verb' => 'required'
+        );
+
     /**
      * Accessible
      *  for mass-assignment...
@@ -15,16 +26,22 @@ class Requirement extends Aware
      */
     public function achievement()
     {
-        $this -> has_many_and_belongs_to('Achievements');
+        $this->has_many_and_belongs_to('Achievement');
     }
 
-    /**
-    *
-    * Aware validation 
-    *
-    */
-    public static $rules = array (
-        'noun' => 'required'
-        'verb' => 'required');
+    public static function make_or_retrieve($noun, $verb, $value)
+    {
+        $r = Require::where_value($value)->where_verb($verb)->where_noun($noun)->first();
+        if (is_null($r))
+        {
+            $r = new Requirement();
+            $r->value = $value;
+            $r->verb = $verb;
+            $r->noun = $noun;
+            $r->save();
+        } 
+
+        return $r;
+    }
 
 }
