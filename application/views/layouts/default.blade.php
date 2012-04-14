@@ -23,9 +23,19 @@
 <body class="wrapper">
 
 
-<div class="grid-12 header">
+<div class="grids header">
 
-    <h1>Hipst-a-graph</h1>
+    <div class="grid-8">
+        <h1>Hipst-a-graph</h1>
+    </div>
+
+    <div class="grid-4 text-right">
+    @if (Auth::check())
+        <p>Logged in as {{ HTML::link('user/profile', Auth::user()->username) }}, {{ HTML::link('login/leave', 'logout') }}?</p>
+    @else
+        <p>{{ HTML::link('login', 'Login') }}</p>
+    @endif
+    </div>
 
 </div>
 
