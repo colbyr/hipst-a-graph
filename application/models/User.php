@@ -8,7 +8,7 @@ class User extends Aware
      * Accessible
      *  for mass-assignment...
      */
-    public static $accessable = array('email');
+    public static $accessable = array();
 
     /**
      * [Many to Many] Achievements
