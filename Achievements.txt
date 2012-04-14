@@ -1,2 +1,30 @@
 Achievement ideas:
 
+Catagories:
+    Bought:
+        $ amounts
+            $ in a single catagory
+        from places
+        from catagories
+        # of items
+        first person to buy
+    Selling:
+        own a store
+            mutiple stores
+        sold $
+        sold in mutiple catagories
+        become featured?
+        feedback
+    Circles:
+        # of people in circles
+    Favorites
+        # loved
+        # catagories loved
+    General:
+        Have a profile pic
+        durration of account existance
+
+
+
+
+
