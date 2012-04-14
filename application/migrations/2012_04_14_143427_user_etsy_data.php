@@ -12,7 +12,7 @@ class User_Etsy_Data {
 		Schema::table('users', function ($table) {
 			$table->integer('user_id')->index();
 			$table->string('login_name')->index();
-			$table->string('email')->index();
+			$table->string('primary_email')->index();
 		});
 	}
 
