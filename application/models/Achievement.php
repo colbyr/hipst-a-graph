@@ -18,7 +18,7 @@ class Achievement extends Aware
     }
 
     /**
-     * [Many to Many] requirements
+     * [One to Many] requirements
      * 
      * @return array
      */
