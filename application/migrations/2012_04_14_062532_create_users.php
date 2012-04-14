@@ -13,6 +13,7 @@ class Create_Users {
         $table->increments('id');
         $table->string('oauth_token', 320);
         $table->string('oauth_token_secret', 320);
+        $table->timestamps();
       });
 	}
 
