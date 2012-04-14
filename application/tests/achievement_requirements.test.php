@@ -2,6 +2,14 @@
 
 class TestAchievement_Requiements extends PHPUnit_Framework_TestCase {
 
+  protected function setUp()
+  {
+    $a = static::makeAchievement();
+    $a->save();
+    $r = static::makeRequirement();
+    $r->save();
+  }
+
     /**
      * Test that a given condition is met.
      *
