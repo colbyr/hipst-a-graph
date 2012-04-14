@@ -4,7 +4,7 @@
 
 <div class="grid-12">
 
-    <h2>Login</h2>
+    <h1>Login</h1>
 
     @if (isset($error))
     <p class="error">{{ $error }}</p>

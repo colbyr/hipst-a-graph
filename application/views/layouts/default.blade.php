@@ -20,24 +20,22 @@
 
 </head>
 
-<body class="wrapper">
+<body>
 
 
-<div class="grids header">
+<div class="header">
 
-    <div class="grid-8">
-        <h1>{{ HTML::link('/', 'Hipst-a-graph') }}</h1>
-    </div>
+    <h1 class="title no-buffer">{{ HTML::image('img/graph-xsmall.png') }} {{ HTML::link('/', 'Hipst-a-graph') }}</h1>
 
-    <div class="grid-4 text-right">
     @if (Auth::check())
-        <p>Logged in as {{ HTML::link('user/profile', Auth::user()->username) }}, {{ HTML::link('login/leave', 'logout') }}?</p>
+        <p class="no-buffer">Logged in as {{ HTML::link('user/profile', Auth::user()->username) }}, {{ HTML::link('login/leave', 'logout') }}?</p>
     @else
-        <p>{{ HTML::link('login', 'Login') }}</p>
+        <p class="no-buffer">{{ HTML::link('login', 'Login') }}</p>
     @endif
-    </div>
 
 </div>
+
+<div class="wrapper">
 
 <!-- content -->
 <div class="content grids">
@@ -48,14 +46,27 @@
 
 
 <!-- footer -->
-<div class="footer">
-
-</div>
+<div class="footer"></div>
 
 </div><!-- end wrapper -->
 
 <!-- scripts -->
 {{Asset::container('footer')->scripts()}}
+
+<!-- fonts -->
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Averia+Serif+Libre::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
 
 </body>
 

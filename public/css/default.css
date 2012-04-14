@@ -1,6 +1,89 @@
-/* Default CSS */
+/* Default CSS 
+
+Colors:
+
+dark   - #472D38
+bluish - #72AD97
+khaki  - #D6D9BA
+orange - #E6AF83
+red    - #D16C5C
+
+*/
+
+
 
 /* utils */
 .text-right {
     text-align: right;
+}
+.no-buffer {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.buffer-top {
+    margin-top: .25em;
+}
+.pull-right {
+    float: right;
+}
+.pull-left {
+    float: left;
+}
+
+/* body */
+html {
+    height: 100%;
+    color: #472D38;
+    background-color: #D6D9BA;
+}
+body {
+    height:100%;
+    padding-top: 100px;
+}
+.wrapper {
+    background-color: #fff;
+    min-height: 100%;
+}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #472D38;
+    padding: .25em;
+    color: #fff;
+}
+.header a {
+    color: #fff;
+}
+
+/* text */
+.title {
+    font-size: 1.5em;
+}
+h1, h2, h3 {
+    font-family: 'Averia Serif Libre', cursive;
+}
+a {
+    color: #D16C5C;
+}
+
+/* Logo */
+.logo,
+.logo img{
+    display:block;
+    width:32px; /* Width of your logo in pixels (ideally a round grid-number) */
+    height:32px; /* Height of your logo in pixels */
+}
+/* Based on the fact that we need to use an <img /> in our markup, let’s hide the actual image and use a background on the <a>--this gives us semantically sound markup and the ability to use sprites for hover effects! */
+.logo{
+    background: url('../img/graph-xsmall.png');
+}
+    .logo:hover{
+        /* Hover states */
+        background-position:0 -00px;
+    }
+.logo img{
+    position:absolute;
+    left:-99999px;
 }

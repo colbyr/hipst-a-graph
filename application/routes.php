@@ -9,6 +9,7 @@ View::composer('layouts.default', function($view)
 {
     // styles
     Asset::add('inuit', 'css/inuit/core.css');
+    Asset::add('default', 'css/default.css', 'inuit');
 
     // scripts
     Asset::container('footer')->add('jquery', 'js/lib/jquery.js');
