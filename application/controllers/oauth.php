@@ -17,7 +17,7 @@ class Oauth_Controller extends Base_Controller {
         // instantiate the OAuth object
         // OAUTH_CONSUMER_KEY and OAUTH_CONSUMER_SECRET are constants holding your key and secret
         // and are always used when instantiating the OAuth object 
-        $oauth = new OAuth("eyy20g4fis76a8mypze6qqbo", "pb8e4h4awi");
+        $oauth = OauthHelper::oauth();
 
         // make an API request for your temporary credentials
         $req_token = $oauth->getRequestToken("http://openapi.etsy.com/v2/oauth/request_token?scope=email_r%20listings_r", 'http://localhost/hipst-a-graph/public/oauth/callback');
@@ -43,10 +43,7 @@ class Oauth_Controller extends Base_Controller {
         // get the verifier from the url
         $verifier = Input::get('oauth_verifier');
 
-        $oauth = static::oauth();
-
-        // set the temporary credentials and secret
-        $oauth->setToken($request_token, $request_token_secret);
+        $oauth = OauthHelper::authed($request_token, $request_token_secret);
 
         try {
             // set the verifier and request Etsy's token credentials url
@@ -57,12 +54,6 @@ class Oauth_Controller extends Base_Controller {
             echo($e->getMessage());
         }
         
-    }
-
-    public static function oauth()
-    {
-        $oauth = new OAuth("eyy20g4fis76a8mypze6qqbo", "pb8e4h4awi");
-        return $oauth;
     }
 
 }
