@@ -9,7 +9,7 @@ class User_Etsy_Data {
 	 */
 	public function up()
 	{
-		Schema::table('user', function ($table) {
+		Schema::table('users', function ($table) {
 			$table->integer('user_id')->index();
 			$table->string('login_name')->index();
 			$table->string('email')->index();
@@ -23,7 +23,7 @@ class User_Etsy_Data {
 	 */
 	public function down()
 	{
-		Schema::table('user', function ($table) {
+		Schema::table('users', function ($table) {
 			$table->drop_column('user_id');
 			$table->drop_column('login_name');
 			$table->drop_column('email');
