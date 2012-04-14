@@ -7,11 +7,22 @@ class Oauth_Controller extends Base_Controller {
     | Login Controller
     |--------------------------------------------------------------------------
     */
+
+    /**
+     * [GET] Index
+     *
+     * @return View
+     */
     public function get_index()
     {
-        //return View::make('home.login');
+        return View::make('home.login');
     }
 
+    /**
+     * [GET] Auth
+     *
+     * @return Redirect
+     */
     public function get_auth()
     {
         // instantiate the OAuth object
@@ -20,7 +31,7 @@ class Oauth_Controller extends Base_Controller {
         $oauth = OauthHelper::oauth();
 
         // make an API request for your temporary credentials
-        $req_token = $oauth->getRequestToken("http://openapi.etsy.com/v2/oauth/request_token?scope=email_r%20listings_r", 'http://localhost/hipst-a-graph/public/oauth/callback');
+        $req_token = $oauth->getRequestToken("http://openapi.etsy.com/v2/oauth/request_token", 'http://localhost/hipst-a-graph/public/oauth/callback');
 
 
         Session::flash('request_secret', $req_token['oauth_token_secret']);
@@ -28,6 +39,11 @@ class Oauth_Controller extends Base_Controller {
         return Redirect::to($req_token['login_url']);
     }
 
+    /**
+     * [GET] Callback
+     *
+     * @return Redirect
+     */
     public function get_callback()
     {
         echo __FUNCTION__ . PHP_EOL;
