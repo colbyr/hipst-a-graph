@@ -19,6 +19,7 @@ class Etsy
     {
         return static::get('/listings/active');
     }
+
     /**
      * Favorites
      *  get favorites for the current user
@@ -29,6 +30,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/favorites/listings');
     }
+
     /**
      * Orders
      *  get orders associated with the current user
@@ -39,6 +41,7 @@ class Etsy
     {
         return static::get('users/__SELF__/orders');
     }
+
     /**
     * Payments
     *  get payment information for the current user(seller)
@@ -49,8 +52,10 @@ class Etsy
     {
         return static::get('/users/__SELF__/payments/templates');
     }
+    
     /**
      *  Users
+     *
      *  get user info including creation tsz for the current user
      *  also returns feedback % score
      *
@@ -58,8 +63,21 @@ class Etsy
      */
     public static function user()
     {
-        return static::get('/users/__SELF__');
+        return static::get('/users/__SELF__', array('includes'=>'Profile'));
     }
+
+    /**
+     * Avatar
+     * 
+     * Get the user avatar URL
+     *
+     * @return array
+     */
+    public static function avatar()
+    {
+        return static::get('/users/__SELF__/profile');
+    }
+
     /**
      * Billing
      *  get billing info for the current user
@@ -70,6 +88,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/billing/overview');
     }
+
     /**
     * Cart
     * get info on current user's cart
@@ -80,6 +99,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/carts');
     }
+
     /**
      * Favorited
      *  show who and how many people are favoriting the current user
@@ -100,6 +120,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/receipts');
     }
+
     /**
      * Shipping
      *  get current shipping information for the current user
@@ -110,6 +131,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/shipping/templates');
     }
+
     /**
      * Shops
      *  get shops for the current user
@@ -120,6 +142,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/shops');
     }
+
     /**
      * Teams
      *  get teams current user is a part of
@@ -130,6 +153,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/teams');
     }
+
     /**
      * Transactions
      *  get transactions between current user and shop 
@@ -140,6 +164,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/transactions');
     }
+
     /**
      * Treasury
      *  get treasury of current user 
@@ -150,17 +175,18 @@ class Etsy
     {
         return static::get('/users/__SELF__/treasuries');
     }
+
     /**
      * Get query
      *
      * @param  string $query
      * @return array
      */
-    public static function get($query)
+    public static function get($query, $params=array())
     {
         $oauth = Auth::user()->oauth();
         try {
-            $data = $oauth->fetch("http://openapi.etsy.com/v2/" . $query);
+            $data = $oauth->fetch("http://openapi.etsy.com/v2/" . $query, $params);
             $json = $oauth->getLastResponse();
 
             return json_decode($json);

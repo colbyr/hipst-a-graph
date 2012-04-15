@@ -27,7 +27,13 @@ class Etsy_Controller extends Base_Controller {
     public function get_index()
     {
         echo '<pre>';
-        print_r(Etsy::shops());
+        print_r(Etsy::user());
+    }
+
+    public function get_get($method)
+    {
+        echo '<pre>';
+        print_r(Etsy::$method());
     }
 
 }

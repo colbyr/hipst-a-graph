@@ -4,7 +4,7 @@
 
 <div class="grid-12">
 
-    <h2>Register</h2>
+    <h1>Register</h1>
 
     @if (isset($error))
     <p class="error">{{ $error }}</p>
@@ -12,10 +12,10 @@
 
     {{ Form::open() }}
 
-    {{ Form::label('username', 'Username') }}
+    {{ Form::label('username', 'Choose a username...') }}
     {{ Form::text('username') }}
 
-    {{ Form::label('password', 'Password') }}
+    {{ Form::label('password', '...and a password') }}
     {{ Form::password('password') }}
 
     {{ Form::submit('Login') }}
