@@ -208,3 +208,7 @@ a, a:hover {
 .note {
     font-size: .7em;
 }
+
+.achievements .media > .body {
+    padding-top: .5em;
+}

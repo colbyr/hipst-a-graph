@@ -39,23 +39,25 @@
 
         <h2>Achievement Stream</h2>
 
-        @if(!empty($user->achievements))
+        <ul class="list-none">
 
-        <ul>
+        @forelse($user->achievements as $achievement)
+            <li class="media">
 
-        @foreach($user->achievements as $achievement)
-            <li>
-                {{ $achievement->name }}
+                <div class="img">
+                    {{ HTML::image('img/achievement-small.png') }}
+                </div>
+
+                <div class="body">
+                    <h3 class="orange no-buffer">{{ $achievement->name }}</h3>
+                    <p  class="no-buffer">{{ $achievement->description }}</p>
+                </div>
             </li>
-        @endforeach
+        @empty
+            <li>No achievements... Hipster fail :(</li>
+        @endforelse
 
         </ul>
-
-        @else
-
-        <p>No achievements... Hipster fail :(</p>
-
-        @endif
 
     </div>
 
