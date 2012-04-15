@@ -39,6 +39,24 @@
 
         <h2>Achievement Stream</h2>
 
+        @if(!empty($user->achievements))
+
+        <ul>
+
+        @foreach($user->achievements as $achievement)
+            <li>
+                {{ $achievement->name }}
+            </li>
+        @endforeach
+
+        </ul>
+
+        @else
+
+        <p>No achievements... Hipster fail :(</p>
+
+        @endif
+
     </div>
 
 </div>
