@@ -40,6 +40,20 @@
 
 <div class="wrapper">
 
+<!-- errors -->
+<div class="messages grids">
+
+  @if(isset($message))
+  <div class="grid-12">
+    <p class="msg msg-{{ $message['type'] }}">
+      <strong class="dark">{{ Str::title($message['type']) }}:</strong>
+      {{ $message['text'] }}
+    </p>
+  </div>
+  @endif
+
+</div>
+
 <!-- content -->
 <div class="content grids">
 
