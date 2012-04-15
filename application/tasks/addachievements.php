@@ -1,6 +1,6 @@
 <?php
 
-class addachievements_task
+class addacheievements_task
 {
     /**
     *
