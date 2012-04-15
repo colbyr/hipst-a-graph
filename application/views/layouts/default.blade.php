@@ -25,13 +25,16 @@
 
 <div class="header">
 
-    <h1 class="title no-buffer">{{ HTML::image('img/graph-xsmall.png') }} {{ HTML::link('/', 'Hipst-a-graph') }}</h1>
+    <div class="header-inner">
+    {{ HTML::image('img/logo-xsmall-w.png') }}
+    <h1 class="title no-buffer">{{ HTML::link('/', 'Hipst-a-graph') }}</h1>
 
     @if (Auth::check())
-        <p class="no-buffer">Logged in as {{ HTML::link('user/profile', Auth::user()->username) }}, {{ HTML::link('login/leave', 'logout') }}?</p>
+        <p>Logged in as {{ HTML::link('user/profile', Auth::user()->username) }}, {{ HTML::link('login/leave', 'logout') }}?</p>
     @else
-        <p class="no-buffer">{{ HTML::link('login', 'Login') }}</p>
+        <p>{{ HTML::link('login', 'Login') }}</p>
     @endif
+    </div>
 
 </div>
 
