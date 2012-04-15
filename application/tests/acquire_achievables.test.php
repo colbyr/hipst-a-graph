@@ -24,6 +24,15 @@ class TestAcquire_Achievables extends PHPUnit_Framework_TestCase {
 
 	public function testRun()
 	{
-		Command::run(array('acquireachievables'));
+		//pass in a user with Auth::user() as a parameter
+		Command::run(array('acquireachievables ' . Auth::user()));
 	}
+
+	public function TestAcquire()
+	{
+		 $user = Auth::user();
+		 $achievements = $user->achievements;
+		 assert(count($achievements) > -1);
+	}
+
 }

@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost/hipst-a-graph/public',
+	'url' => 'http://colbyr.com/hipst-a-graph/public',
 
 	/*
 	|--------------------------------------------------------------------------
