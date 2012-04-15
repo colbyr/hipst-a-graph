@@ -48,7 +48,7 @@ class User extends Aware
     {
         $name = $this->first_name;
 
-        if(empty($this->last_name))
+        if(!empty($this->last_name))
         {
             $name .= ' ' . ($full ? $this->last_name : Str::limit($this->last_name, 1, '') . '.');
         }

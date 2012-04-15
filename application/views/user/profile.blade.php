@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="grid-3">
+<div class="grid-4">
 
     <div class="score">
         <h1 class="no-buffer">{{ $user->score }} HP*</h1>
@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="grid-9">
+<div class="grid-8">
 
     <div class="profile media section">
 
@@ -21,7 +21,7 @@
 
         <div class="body">
 
-            <h1 class="no-buffer">{{ $user->first_name }} {{ Str::limit($user->last_name, 1, '') }}.</h1>
+            <h1 class="no-buffer">{{ $user->name() }}.</h1>
 
             <p class="no-buffer">[{{ HTML::link($user->profile_link(), 'view etsy profile', array('target'=>'_blank')) }}]</p>
 
