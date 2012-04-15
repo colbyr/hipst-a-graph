@@ -19,7 +19,6 @@ class Etsy
     {
         return static::get('/listings/active');
     }
-
     /**
      * Favorites
      *  get favorites for the current user
