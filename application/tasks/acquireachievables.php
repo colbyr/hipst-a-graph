@@ -1,7 +1,6 @@
 <?php
-public class AquireAchievables
+class AcquireAchievables
 {
-    $flat_json;
 
     public function getEtsyFunction($query)
     {
@@ -20,11 +19,11 @@ public class AquireAchievables
         //here is where we should do it in a background process
         //but for now lets do this:
         //loop through the array of unearned achievements
-
-        //make variables that persist during the foreach 
+        
         $json;
         $query;
         $oldquery;
+        $flat_json;
 
         foreach($unearned_achievements as $unearned)
         {
@@ -82,11 +81,13 @@ public class AquireAchievables
       return false;
     }
 
-    public function flatten($json){
-      $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($json));
+    public function flatten(){
+      $a = array();
+      $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($a));
       foreach($it as $v) {
         array_push($a, $v);
       }
+
     }
 
     public function getAchievements($user)
@@ -97,15 +98,22 @@ public class AquireAchievables
     public function unearned($achievements)
     {
         $array;
-        //add the id's of earned achievements into the array
         foreach ($achievements as $achievement) 
         {
             array_push($array, $achievement->id);
         }
-        //find the unearned achievements and return sorted
         return $unearned = DB::table('achievements')
                 ->where_not_in('id', $array)
                 ->order_by('query', 'desc')
                 ->get();
     }
+
+    // public function buildArray($unearned)
+    // {
+    //     foreach ($unearned as $achievement) 
+    //     {
+            
+    //     }
+    // }
+
 }
