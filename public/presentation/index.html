@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Colby - deck.js</title>
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+  <link rel="stylesheet" href="core/deck.core.css" type="text/css">
+  <link rel="stylesheet" href="themes/transition/horizontal-slide.css" type="text/css">
+  <link rel="stylesheet" href="themes/style/colby.css" type="text/css">
+	
+	<!-- Any other extension CSS files go here. -->
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+	<script src="modernizr.custom.js"></script>
+
+</head>
+<body class="deck-container">
+
+<!-- for fools -->
+<section class="slide">
+
+    <div class="vcenter">
+        <h1 class="dark">></h1>
+        <h3>... use the arrows ...</h3>
+    </div>
+
+</section>
+
+<!-- this is a presentation -->
+<section class="slide">
+
+<h1>Hipsta-a-Board</h1>
+
+</section>
+
+<!-- make bullets -->
+<section class="slide">
+
+	<h2>Who we are</h2>
+
+	<ul>
+		<li class="slide">Dan</li>
+		<li class="slide">Colby</li>
+		<li class="slide">Mike</li>
+	</ul>
+
+</section>
+
+<!-- use pictures -->
+<section class="slide logo">
+
+	<h2>A Picture</h2>
+
+	<img src="http://colbyr.com/hipst-a-graph/public/img/logo-xlarge-w.png" style="max-height: 70%;" />
+
+</section>
+
+<!-- a block quote -->
+<section class="slide">
+
+	<h2>The Problem</h2>
+
+	<p>Everyone wants achievements!!!</p>
+
+	<blockquote>I love achievements!<br/><cite>~ Every Person Ever</cite></blockquote>
+
+</section>
+
+<!-- code -->
+<section class="slide">
+
+	<h2>The Problem</h2>
+	<h3>Achievements for your Etsy</h3>
+    <ul>
+      <li>Sucked In! (You bought something!)</li>
+      <li>Look at All my Shiny Trinkets (You bought 10 things!)</li>
+      <li>All Around the World! (You bought something from another country!)</li>
+    </ul>
+
+</section>
+
+<!-- paragraphs -->
+<section class="slide">
+
+  <h2>The Stack</h2>
+  <ul>
+    <li class="slide">Inuit.css</li>
+    <li class="slide">jQuery</li>
+    <li class="slide">Laravel PHP Framework</li>
+    <li class="slide">MySQL (Sorry Alan!)</li>
+    <li class="slide">Linux</li>
+  </ul>
+
+
+</section>
+
+<!-- links -->
+<section class="slide">
+
+  <h2>Challenges</h2>
+
+  <ul>
+    <li></li>
+  </ul>
+
+</section>
+
+<!-- vcenter -->
+<section class="slide">
+
+	<p>Time for the <a href="http://colbyr.com/hipst-a-graph/public">demo</a>.</p>
+
+</section>
+
+<!-- the end -->
+<section class="slide">
+
+	<div class="vcenter">
+		<h3>the end</h3>
+	</div>
+
+</section>
+
+<!-- Update these paths to point to the correct files. -->
+<script src="jquery-1.7.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Add any other extension JS files here -->
+
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Patua+One::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+
+</body>
+</html>
