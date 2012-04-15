@@ -10,6 +10,10 @@
 @section('styles')
 @yield_section
 
+<!-- icons -->
+<link rel="shortcut icon" href="{{ URL::to_asset('img/logo-xsmall.png') }}"/>
+<link rel="apple-touch-icon-precomposed" href="{{ URL::to_asset('img/logo-large.png') }}"/>
+
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
