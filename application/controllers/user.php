@@ -1,5 +1,6 @@
 <?php
-
+use Laravel\CLI\Command;
+require path('sys').'cli/dependencies'.EXT;
 class User_Controller extends Base_Controller {
 
     /*
@@ -27,6 +28,8 @@ class User_Controller extends Base_Controller {
     public function get_profile()
     {
         //User::aquire_achievables(Auth::user());
+        $user = Auth::user();
+        Command::run(array('acquireachievables',"$user->id"));
         return View::make('user.profile')
                     ->with('user', Auth::user())
                     ->with('favorites', Etsy::favorites());
