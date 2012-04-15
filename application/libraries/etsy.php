@@ -30,7 +30,7 @@ class Etsy
     {
         $params = array(
                 'fields'=>'listing_id',
-                'includes'=>'Listing(fields=listing_id,title,url),Listing/MainImage'
+                'includes'=>'Listing:4:0,Listing/MainImage'
             );
 
         $response = OauthHelper::get(static::user_url($user) . 'favorites/listings', $params, $user);
