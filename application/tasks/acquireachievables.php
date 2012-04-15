@@ -1,52 +1,61 @@
 <?php
-class AcquireAchievables
+class Acquireachievables_Task
 {
 
-    public function getEtsyFunction($query)
+    public function getEtsyFunction($query , $user)
     {
-        return Etsy::$query();
+        return Etsy::$query($user);
     }
 
     public function run($arguments)
     {
+        $user = User::find($arguments[0]);
+        //print_r($user);exit();
         //get an array of all of the achievement already earned
-        $achievements = getAchievements($arguments[0]);
-        
-        //get the achievements not earned yet
-        //array of unearned achievements
-        $unearned_achievements = unearned($achievements);
-
-        //here is where we should do it in a background process
-        //but for now lets do this:
-        //loop through the array of unearned achievements
-        
-        $json;
-        $query;
-        $oldquery;
-        $flat_json;
-
-        foreach($unearned_achievements as $unearned)
+        if($user != null)
         {
-            //get query
-            $query = $unearned->query;
+          $achievements = $this->getAchievements($user);
+          
+          //get the achievements not earned yet
+          //array of unearned achievements
+          $unearned_achievements = $this->unearned($achievements);
 
-            if($query != $oldquery)
-            {
-                $json = getEtsyFunction($query);
+          //here is where we should do it in a background process
+          //but for now lets do this:
+          //loop through the array of unearned achievements
+          
+          $json;
+          $query;
+          $oldquery = -1;
+          $flat_json;
+
+          foreach($unearned_achievements as $unearned)
+          {
+              $requirement = $unearned->requirements()->first();
+              //get query
+              if(is_object($requirement))
+              {
+                $query = $requirement->query;
+
+                if($query != $oldquery)
+                {
+                    $json = $this->getEtsyFunction($query , $user);
+                }
+
+                if($this->check($json, $requirement))
+                {  
+                    $user->achievements()->attach($unearned->id);
+                }
+
+                $oldquery = $query;
             }
-
-            if(check($json, $unearned))
-            {  
-                $arguments[0]->achievements()->attach($unearned->id);
-            }
-
-            $oldquery = $query;
-       }
+        }
+      }
     }
 
     public function check($json, $unearned){
       //flatten the json into a single dimmensional map
-      $results = array_keys($json, $unearned->noun);
+      //$results = array_keys($json, $unearned->noun);
 
       $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($json));
       foreach($it as $key => $value)
@@ -69,6 +78,12 @@ class AcquireAchievables
               break;
             case '=>':
               if($value >= $unearned->value)
+              {
+                return true;
+              }
+              break;
+            case '=<':
+              if($value <= $unearned->value)
               {
                 return true;
               }
@@ -97,15 +112,19 @@ class AcquireAchievables
 
     public function unearned($achievements)
     {
-        $array;
+        $array = array();
         foreach ($achievements as $achievement) 
         {
             array_push($array, $achievement->id);
         }
-        return $unearned = DB::table('achievements')
+        if(count($array) > 0){
+          return Achievement::with('requirements')
                 ->where_not_in('id', $array)
-                ->order_by('query', 'desc')
                 ->get();
+        }
+        else {
+          return Achievement::with('requirements')->all();
+        }
     }
 
     // public function buildArray($unearned)
