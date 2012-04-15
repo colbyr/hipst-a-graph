@@ -20,6 +20,11 @@ class User extends Aware
         return $this->has_many_and_belongs_to('Achievement');
     }
 
+    public static function top()
+    {
+        return static::order_by('score', 'desc')->take(5)->get();
+    }
+
     /**
      * Aware Validation Rules
      *

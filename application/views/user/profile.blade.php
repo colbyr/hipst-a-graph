@@ -23,7 +23,7 @@
 
             <h1 class="no-buffer">{{ $user->first_name }} {{ Str::limit($user->last_name, 1, '') }}.</h1>
 
-            <p class="no-buffer">[{{ HTML::link($user->profile_link(), 'view on etsy', array('target'=>'_blank')) }}]
+            <p class="no-buffer">[{{ HTML::link($user->profile_link(), 'view etsy profile', array('target'=>'_blank')) }}]</p>
 
         </div>
 

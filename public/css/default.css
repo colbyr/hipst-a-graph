@@ -23,6 +23,9 @@ red    - #D16C5C
 .buffer-top {
     margin-top: .25em;
 }
+.buffer-bottom {
+    margin-bottom: .25em;
+}
 .pull-right {
     float: right;
 }
@@ -212,3 +215,29 @@ a, a:hover {
 .achievements .media > .body {
     padding-top: .5em;
 }
+
+.top .media {
+    margin-bottom: 0;
+}
+.top .media:first-child {
+    background-color: #72AD97;
+    color: #fff;
+}
+.top .media:first-child a {
+    color: #472D38;
+}
+.top .media:first-child h2 > a {
+    color: #fff;
+}
+.top h2 {
+    font-size: 2.5em;
+}
+.top .score {
+    font-size: 3.75em;
+}
+.top > .media {
+    background-color: #D6D9BA;
+    padding: 1em 1em .6em;
+    margin-bottom: 1em;
+}
+

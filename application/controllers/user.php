@@ -25,11 +25,18 @@ class User_Controller extends Base_Controller {
      *
      * @return View
      */
-    public function get_profile()
+    public function get_profile($id=0)
     {
-        //User::aquire_achievables(Auth::user());
-        $user = Auth::user();
+
+        $user = ($id === 0) ? Auth::user() : User::find($id);
+
+        if (is_null($user))
+        {
+            return Response::error(404);
+        }
+
         Command::run(array('acquireachievables',"$user->id"));
+
         return View::make('user.profile')
                     ->with('user', Auth::user())
                     ->with('favorites', Etsy::favorites());
