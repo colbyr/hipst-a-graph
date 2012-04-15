@@ -170,11 +170,17 @@ a, a:hover {
 }
 
 /* User profile */
+.section {
+    padding: 1em 1em .6em;
+}
 .profile {
     color: #fff;
     background-color: #72AD97;
-    padding: 1em 1em .6em;
 }
     .profile a {
         color: #472D38;
     }
+
+.favorites {
+    background-color: #D6D9BA;
+}
