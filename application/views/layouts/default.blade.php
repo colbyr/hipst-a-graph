@@ -3,7 +3,7 @@
 
 <head>
 
-<title>Hipst-a-graph</title>
+<title>Hipst-a-board</title>
 
 <!-- styles -->
 {{Asset::styles()}}
@@ -27,7 +27,7 @@
 
     <div class="header-inner">
     {{ HTML::image('img/logo-xsmall-w.png') }}
-    <h1 class="title no-buffer">{{ HTML::link('/', 'Hipst-a-graph') }}</h1>
+    <h1 class="title no-buffer">{{ HTML::link('/', 'Hipst-a-board') }}</h1>
 
     @if (Auth::check())
         <p>Logged in as {{ HTML::link('user/profile', Auth::user()->name()) }} --- {{ HTML::link('login/leave', 'logout') }}</p>
