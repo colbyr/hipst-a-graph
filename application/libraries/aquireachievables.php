@@ -25,7 +25,7 @@ public class AquireAchievables
         $oldquery;
 
         foreach($unearned_achievements as $unearned)
-        {   
+        {
             //get query
             $query = $unearned->query;
 
@@ -38,6 +38,16 @@ public class AquireAchievables
 
             $oldquery = $query;
        }
+    }
+
+    public function check($json, $unearned){
+      $noun = $unearned->noun;
+      $verb = $unearned->verb;
+      $value = $unearned->value;
+
+      //TODO: Search JSON for the noun of $unearned
+      //Compare values between $unearned and $json (with $verb)
+      //return a boolean (is above comparison true or false)
     }
 
     public function getAchievements($user)
