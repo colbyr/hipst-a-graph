@@ -62,9 +62,10 @@ class OauthHelper
      * @param  array  $params
      * @return array
      */
-    public static function get($query, $params=array())
+    public static function get($query, $params=array(), $user=null)
     {
-        $oauth = Auth::user()->oauth();
+        $user = is_null($user) ? Auth::user() : $user;
+        $oauth = $user->oauth();
         try {
             $data = $oauth->fetch(Config::get('oauth.url') . $query, $params);
             $json = $oauth->getLastResponse();
