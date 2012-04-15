@@ -34,7 +34,7 @@
                 "query": "user",
                 "noun": "country_id",
                 "verb": "!=",
-                "value": "206"
+                "value": "209"
             }
         ]
     },
