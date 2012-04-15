@@ -45,6 +45,7 @@ class Acquireachievables_Task
                 if($this->check($json, $requirement))
                 {  
                     $user->achievements()->attach($unearned->id);
+                    $user->score += $unearned->value;
                 }
 
                 $oldquery = $query;
