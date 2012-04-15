@@ -11,11 +11,6 @@ class User_Controller extends Base_Controller {
 
     public function __construct()
     {
-        // auth
-        $this->filter('before', 'auth');
-
-        // auth
-        $this->filter('before', 'oauth');
 
         parent::__construct();
     }
@@ -30,7 +25,7 @@ class User_Controller extends Base_Controller {
 
         $user = ($id === 0) ? Auth::user() : User::find($id);
 
-        if (is_null($user))
+        if (is_null($user) || (!Auth::check() && $id === 0))
         {
             return Response::error(404);
         }
