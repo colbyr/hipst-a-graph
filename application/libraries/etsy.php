@@ -49,6 +49,7 @@ class Etsy
     {
         return static::get('/users/__SELF__/payments/templates');
     }
+    
     /**
      *  Users
      *  get user info including creation tsz for the current user
@@ -60,6 +61,19 @@ class Etsy
     {
         return static::get('/users/__SELF__');
     }
+
+    /**
+     * Avatar
+     * 
+     * Get the user avatar URL
+     *
+     * @return array
+     */
+    public static function avatar()
+    {
+        return static::get('/users/__SELF__/avatar/src');
+    }
+
     /**
      * Billing
      *  get billing info for the current user

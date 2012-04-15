@@ -17,7 +17,7 @@ class User extends Aware
      */
     public function achievements()
     {
-        return $this -> has_many_and_belongs_to('Achievement');
+        return $this->has_many_and_belongs_to('Achievement');
     }
 
     /**
@@ -31,7 +31,7 @@ class User extends Aware
         // );
 
     /**
-     * API
+     * Sync API
      *
      * get the use data from the api
      *
@@ -48,6 +48,7 @@ class User extends Aware
             $this->user_id = $res['user_id'];
             $this->login_name = $res['login_name'];
             $this->primary_email = $res['primary_email'];
+            $this->sync_avatar();
             return true;
         } catch (OAuthException $e) {
             Log::error($e->getMessage());
@@ -55,6 +56,19 @@ class User extends Aware
             Log::error(print_r($oauth->getLastResponseInfo(), true));
             return false;
         }
+    }
+
+    /**
+     * Sync Avatar
+     *
+     * get the user avatar URL
+     *
+     * @return void
+     */
+    public function sync_avatar()
+    {
+        $res = Etsy::avatar();
+        $this->avatar_url = $res->results->src;
     }
 
     /**
