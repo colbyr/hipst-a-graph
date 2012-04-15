@@ -1,6 +1,7 @@
 <?php
 public class AquireAchievables
 {
+    $flat_json;
 
     public function getEtsyFunction($query)
     {
@@ -45,11 +46,24 @@ public class AquireAchievables
       $verb = $unearned->verb;
       $value = $unearned->value;
 
+      $results = array_keys($flat_json, $unearned->noun);
 
+      foreach($results as $r){
+        if($flat_jon[$r];
+      }
 
       //TODO: Search JSON for the noun of $unearned
       //Compare values between $unearned and $json (with $verb)
       //return a boolean (is above comparison true or false)
+    }
+
+    public function flatten(){
+      $a = array();
+      $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($a));
+      foreach($it as $v) {
+        array_push($a, $v);
+      }
+
     }
 
     public function array_max_depth($array, $depth = 0) {
