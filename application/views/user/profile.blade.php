@@ -2,7 +2,16 @@
 
 @section('content')
 
-<div class="grid-12">
+<div class="grid-3">
+
+    <div class="score">
+        <h1 class="no-buffer">{{ $user->score }} HP*</h1>
+        <p class="note no-buffer">* HP = <i>hipster points</i></p>
+    </div>
+
+</div>
+
+<div class="grid-9">
 
     <div class="profile media section">
 
@@ -21,6 +30,8 @@
     </div>
 
 </div>
+
+
 
 <div class="grid-8">
 
