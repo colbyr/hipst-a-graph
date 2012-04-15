@@ -26,19 +26,6 @@
         ]
     },
     {
-        "name": "All Around the World",
-        "value": 10,
-        "description": "You bought something from another country!",
-        "requirements": [
-            {
-                "query": "user",
-                "noun": "country_id",
-                "verb": "!=",
-                "value": "209"
-            }
-        ]
-    },
-    {
         "name": "Big Spender",
         "value": 15,
         "description": "Spent over $30 on a single item!",

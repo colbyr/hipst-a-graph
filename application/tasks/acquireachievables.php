@@ -28,6 +28,7 @@ class Acquireachievables_Task
           $query;
           $oldquery = -1;
           $flat_json;
+          
 
           foreach($unearned_achievements as $unearned)
           {
@@ -47,10 +48,10 @@ class Acquireachievables_Task
                     $user->achievements()->attach($unearned->id);
                     $user->score += $unearned->value;
                 }
-
                 $oldquery = $query;
             }
         }
+        $user->save();
       }
     }
 
