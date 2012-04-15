@@ -31,6 +31,34 @@ class User extends Aware
         // );
 
     /**
+     * Name
+     *
+     * returns the User's first name and last initial if full is false
+     * otherwise returns the User's full name
+     *
+     * @param  bool $full
+     * @return string
+     */
+    public function name($full=false)
+    {
+        $name = $this->first_name . ' ';
+        $name .= $full ? $this->last_name : Str::limit($this->last_name, 1, '') . '.';
+        return $name;
+    }
+
+    /**
+     * Profile Link 
+     *
+     * Get link to User's Etsy profile 
+     *
+     * @return string
+     */
+    public function profile_link($full=false)
+    {
+        return 'http://etsy.com/people/' . $this->login_name;
+    }
+
+    /**
      * Sync API
      *
      * get the use data from the api

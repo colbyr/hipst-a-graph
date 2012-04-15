@@ -168,3 +168,13 @@ a, a:hover {
     position:absolute;
     left:-99999px;
 }
+
+/* User profile */
+.profile {
+    color: #fff;
+    background-color: #72AD97;
+    padding: 1em 1em .6em;
+}
+    .profile a {
+        color: #472D38;
+    }

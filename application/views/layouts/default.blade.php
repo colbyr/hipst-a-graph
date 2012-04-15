@@ -30,7 +30,7 @@
     <h1 class="title no-buffer">{{ HTML::link('/', 'Hipst-a-graph') }}</h1>
 
     @if (Auth::check())
-        <p>Logged in as {{ HTML::link('user/profile', Auth::user()->first_name . ' ' . Auth::user()->last_name) }} --- {{ HTML::link('login/leave', 'logout') }}</p>
+        <p>Logged in as {{ HTML::link('user/profile', Auth::user()->name()) }} --- {{ HTML::link('login/leave', 'logout') }}</p>
     @else
         <p>{{ HTML::link('login', 'Login') }}</p>
     @endif
