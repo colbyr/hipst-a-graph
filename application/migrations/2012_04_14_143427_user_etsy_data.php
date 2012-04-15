@@ -26,7 +26,7 @@ class User_Etsy_Data {
 		Schema::table('users', function ($table) {
 			$table->drop_column('user_id');
 			$table->drop_column('login_name');
-			$table->drop_column('email');
+			$table->drop_column('primary_email');
 		});
 	}
 
