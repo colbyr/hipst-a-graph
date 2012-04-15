@@ -38,8 +38,8 @@ class User_Controller extends Base_Controller {
         Command::run(array('acquireachievables',"$user->id"));
 
         return View::make('user.profile')
-                    ->with('user', Auth::user())
-                    ->with('favorites', Etsy::favorites());
+                    ->with('user', $user)
+                    ->with('favorites', Etsy::favorites($user));
     }
 
 }
