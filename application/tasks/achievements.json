@@ -12,7 +12,7 @@
 	"value":15,
 	"description":"You bought 10 things!",
 	"requirements":[
-		{"query":"transaction","noun":"count", "verb":"=>", "value":"10"}
+		{"query":"transactions","noun":"count", "verb":"=>", "value":"10"}
 	]
 },
 {
@@ -36,7 +36,7 @@
 	"value":15,
 	"description":"Spent over $50 on a single item!", 
 	"requirements":[
-		{"query":"orders/user/transaction", "verb":"=>", "value":"50"}   //Dunno how to do, ask Colby
+		{"query":"orders/user/transactions", "verb":"=>", "value":"50"}   //Dunno how to do, ask Colby
 	]
 },
 {
