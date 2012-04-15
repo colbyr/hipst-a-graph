@@ -38,4 +38,48 @@ class OauthHelper
         return $oauth;
     }
 
+    /**
+     * Request Token
+     *
+     * Get a request token from the API
+     *
+     * @return array
+     */
+    public static function request_token()
+    {
+        $oauth = static::oauth();
+
+        // make an API request for your temporary credentials
+        $request_token = $oauth->getRequestToken(
+            Config::get('oauth.url') . "oauth/request_token",
+            Config::get('callback'));
+
+        return $request_token;
+    }
+
+    /**
+     * Get query
+     *
+     * @param  string $query
+     * @param  array  $params
+     * @return array
+     */
+    public static function get($query, $params=array())
+    {
+        $oauth = Auth::user()->oauth();
+        try {
+            $data = $oauth->fetch(Config::get('oauth.url') . $query, $params);
+            $json = $oauth->getLastResponse();
+
+            return json_decode($json);
+            
+        } catch (OAuthException $e) {
+            print_r($e->getMessage());
+            Log::error($e->getMessage());
+            Log::error(print_r($oauth->getLastResponse(), true));
+            Log::error(print_r($oauth->getLastResponseInfo(), true));
+            exit;
+        }
+    }
+
 }

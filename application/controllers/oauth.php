@@ -37,18 +37,14 @@ class Oauth_Controller extends Base_Controller {
      */
     public function get_auth()
     {
-        // instantiate the OAuth object
-        // OAUTH_CONSUMER_KEY and OAUTH_CONSUMER_SECRET are constants holding your key and secret
-        // and are always used when instantiating the OAuth object 
-        $oauth = OauthHelper::oauth();
-
         // make an API request for your temporary credentials
-        $req_token = $oauth->getRequestToken("http://openapi.etsy.com/v2/oauth/request_token", 'http://localhost/hipst-a-graph/public/oauth/callback');
+        $token = OauthHelper::request_token();
 
+        // flash the toke to the session data
+        Session::flash('request_secret', $token['oauth_token_secret']);
 
-        Session::flash('request_secret', $req_token['oauth_token_secret']);
-
-        return Redirect::to($req_token['login_url']);
+        // redirect to login
+        return Redirect::to($token['login_url']);
     }
 
     /**
