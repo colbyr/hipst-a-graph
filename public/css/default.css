@@ -130,7 +130,19 @@ h1, h2, h3 {
 a, a:hover {
     color: #D16C5C;
 }
-
+blockquote {
+    display: block;
+    border-left: 5px solid #472D38;
+    padding: .5em 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+blockquote cite {
+    font-size: .7em;
+    display: block;
+    color: #999;
+    text-align: right;
+}
 .msg {
     color: #fff;
     padding: 5px 10px;

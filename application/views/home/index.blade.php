@@ -41,6 +41,9 @@
 
     <div class="grid-4">
         <h2 class="buffer-top">About Hipst-a-board</h2>
+        <p>What does everybody want on Etsy?!</p>
+        <p><strong>Achievements!</strong> Everyone loves achievements...</p>
+        <blockquote>I love achievements <cite>- Every Person Ever</cite></blockquote>
     </div>
 
 @endsection
