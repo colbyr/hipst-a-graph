@@ -20,16 +20,6 @@ class Etsy
         return static::get('/listings/active');
     }
     /**
-    * Avatar
-    *  get avatar info of current user
-    *
-    * @return array
-    */
-    public static function avatar()
-    {
-        return static::get('/users/__SELF__/avatar');
-    }
-    /**
      * Favorites
      *  get favorites for the current user
      *
