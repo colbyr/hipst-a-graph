@@ -27,7 +27,7 @@ class User_Controller extends Base_Controller {
     public function get_profile()
     {
         //User::aquire_achievables(Auth::user());
-        return View::make('user.profile');
+        return View::make('user.profile')->with('user', Auth::user());
     }
 
 }

@@ -17,7 +17,7 @@ class User extends Aware
      */
     public function achievements()
     {
-        return $this -> has_many_and_belongs_to('Achievement');
+        return $this->has_many_and_belongs_to('Achievement');
     }
 
     /**
@@ -31,7 +31,35 @@ class User extends Aware
         // );
 
     /**
-     * API
+     * Name
+     *
+     * returns the User's first name and last initial if full is false
+     * otherwise returns the User's full name
+     *
+     * @param  bool $full
+     * @return string
+     */
+    public function name($full=false)
+    {
+        $name = $this->first_name . ' ';
+        $name .= $full ? $this->last_name : Str::limit($this->last_name, 1, '') . '.';
+        return $name;
+    }
+
+    /**
+     * Profile Link 
+     *
+     * Get link to User's Etsy profile 
+     *
+     * @return string
+     */
+    public function profile_link($full=false)
+    {
+        return 'http://etsy.com/people/' . $this->login_name;
+    }
+
+    /**
+     * Sync API
      *
      * get the use data from the api
      *
@@ -41,13 +69,16 @@ class User extends Aware
     {
         $oauth = OauthHelper::authed($this->oauth_token, $this->oauth_token_secret);
         try {
-            $data = $oauth->fetch("http://openapi.etsy.com/v2/users/__SELF__", null, OAUTH_HTTP_METHOD_GET);
-            $json = $oauth->getLastResponse();
-            $res = json_decode($json, true);
-            $res = $res['results'][0];
-            $this->user_id = $res['user_id'];
-            $this->login_name = $res['login_name'];
-            $this->primary_email = $res['primary_email'];
+            $data = Etsy::user();
+            $profile = $data->results[0]->Profile;
+            
+            $this->user_id = $profile->user_id;
+            $this->login_name = $profile->login_name;
+            $this->primary_email = $data->results[0]->primary_email;
+            $this->first_name = $profile->first_name;
+            $this->last_name = $profile->last_name;
+            $this->gender = $profile->gender;
+            $this->avatar_url = $profile->image_url_75x75;
             return true;
         } catch (OAuthException $e) {
             Log::error($e->getMessage());
