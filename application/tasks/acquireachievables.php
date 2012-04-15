@@ -45,10 +45,23 @@ public class AquireAchievables
       $verb = $unearned->verb;
       $value = $unearned->value;
 
+
+
       //TODO: Search JSON for the noun of $unearned
       //Compare values between $unearned and $json (with $verb)
       //return a boolean (is above comparison true or false)
     }
+
+    public function array_max_depth($array, $depth = 0) {
+      $max_sub_depth = 0;
+      foreach (array_filter($array, 'is_array') as $subarray) {
+        $max_sub_depth = max(
+        $max_sub_depth,
+        array_max_depth($subarray, $depth + 1)
+      );
+    }
+    return $max_sub_depth + $depth;
+}
 
     public function getAchievements($user)
     {
