@@ -19,7 +19,7 @@ class OauthHelper
      */
     public static function oauth()
     {
-        return new OAuth("eyy20g4fis76a8mypze6qqbo", "pb8e4h4awi");
+        return new OAuth(Config::get('oauth.keystring'), Config::get('oauth.secret'));
     }
 
     /**
