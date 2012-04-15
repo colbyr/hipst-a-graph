@@ -4,9 +4,9 @@
 
 <div class="grid-12">
 
-    <h2>Profile</h2>
+    <h1>{{ $user->first_name }}</h1>
 
-    <pre>{{ print_r(Auth::user()) }}</pre>
+    
 
 </div>
 

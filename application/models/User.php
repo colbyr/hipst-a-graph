@@ -50,6 +50,7 @@ class User extends Aware
             $this->first_name = $profile->first_name;
             $this->last_name = $profile->last_name;
             $this->gender = $profile->gender;
+            $this->avatar_url = $profile->image_url_75x75;
             return true;
         } catch (OAuthException $e) {
             Log::error($e->getMessage());
