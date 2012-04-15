@@ -27,6 +27,7 @@ class addachievements_task
             foreach($value->requirements as $requirement)
             {
                  $r = Requirement::make_or_retrieve(
+                        $requirement->query,
                         $requirement->noun,
                         $requirement->verb,
                         $requirement->value
