@@ -49,7 +49,32 @@ public class AquireAchievables
       $results = array_keys($flat_json, $unearned->noun);
 
       foreach($results as $r){
-        if($flat_jon[$r];
+        $value = $flat_jon[$r];
+        switch($unearned->verb)
+        {
+          case '=':
+            if($value === $unearned->value)
+            { 
+              return true;
+            }
+            break;
+          case '!=':
+            if($value != $unearned->value)
+            {
+              return true;
+            }
+            break;
+          case '=>':
+            if($value >= $unearned->value)
+            {
+              return true;
+            }
+            break;
+          default:
+            echo "invalid verb";
+        }
+        if( $unearned->verb $unearned->value);
+          return true;
       }
 
       //TODO: Search JSON for the noun of $unearned
