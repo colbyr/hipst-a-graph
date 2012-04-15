@@ -17,7 +17,7 @@ class Etsy
      */
     public static function active()
     {
-        return static::get('/listings/active');
+        return OauthHelper::get('/listings/active');
     }
 
     /**
@@ -28,7 +28,7 @@ class Etsy
      */
     public static function favorites()
     {
-        return static::get('/users/__SELF__/favorites/listings');
+        return OauthHelper::get('/users/__SELF__/favorites/listings');
     }
 
     /**
@@ -39,7 +39,7 @@ class Etsy
      */
     public static function orders()
     {
-        return static::get('users/__SELF__/orders');
+        return OauthHelper::get('users/__SELF__/orders');
     }
 
     /**
@@ -50,7 +50,7 @@ class Etsy
     */
     public static function payments()
     {
-        return static::get('/users/__SELF__/payments/templates');
+        return OauthHelper::get('/users/__SELF__/payments/templates');
     }
     
     /**
@@ -63,7 +63,7 @@ class Etsy
      */
     public static function user()
     {
-        return static::get('/users/__SELF__', array('includes'=>'Profile'));
+        return OauthHelper::get('/users/__SELF__', array('includes'=>'Profile'));
     }
 
     /**
@@ -75,7 +75,7 @@ class Etsy
      */
     public static function avatar()
     {
-        return static::get('/users/__SELF__/profile');
+        return OauthHelper::get('/users/__SELF__/profile');
     }
 
     /**
@@ -86,7 +86,7 @@ class Etsy
      */
     public static function billing()
     {
-        return static::get('/users/__SELF__/billing/overview');
+        return OauthHelper::get('/users/__SELF__/billing/overview');
     }
 
     /**
@@ -97,7 +97,7 @@ class Etsy
     */
     public static function cart()
     {
-        return static::get('/users/__SELF__/carts');
+        return OauthHelper::get('/users/__SELF__/carts');
     }
 
     /**
@@ -108,7 +108,7 @@ class Etsy
      */
     public static function favorited()
     {
-        return static::get('/users/__SELF__/favored-by');
+        return OauthHelper::get('/users/__SELF__/favored-by');
     }
     /**
      * Receipt
@@ -118,7 +118,7 @@ class Etsy
      */
     public static function receipt()
     {
-        return static::get('/users/__SELF__/receipts');
+        return OauthHelper::get('/users/__SELF__/receipts');
     }
 
     /**
@@ -129,7 +129,7 @@ class Etsy
      */
     public static function shipping()
     {
-        return static::get('/users/__SELF__/shipping/templates');
+        return OauthHelper::get('/users/__SELF__/shipping/templates');
     }
 
     /**
@@ -140,7 +140,7 @@ class Etsy
      */
     public static function shops()
     {
-        return static::get('/users/__SELF__/shops');
+        return OauthHelper::get('/users/__SELF__/shops');
     }
 
     /**
@@ -151,7 +151,7 @@ class Etsy
      */
     public static function teams()
     {
-        return static::get('/users/__SELF__/teams');
+        return OauthHelper::get('/users/__SELF__/teams');
     }
 
     /**
@@ -162,7 +162,7 @@ class Etsy
      */
     public static function transactions()
     {
-        return static::get('/users/__SELF__/transactions');
+        return OauthHelper::get('/users/__SELF__/transactions');
     }
 
     /**
@@ -173,31 +173,7 @@ class Etsy
      */
     public static function treasury()
     {
-        return static::get('/users/__SELF__/treasuries');
-    }
-
-    /**
-     * Get query
-     *
-     * @param  string $query
-     * @return array
-     */
-    public static function get($query, $params=array())
-    {
-        $oauth = Auth::user()->oauth();
-        try {
-            $data = $oauth->fetch("http://openapi.etsy.com/v2/" . $query, $params);
-            $json = $oauth->getLastResponse();
-
-            return json_decode($json);
-            
-        } catch (OAuthException $e) {
-            print_r($e->getMessage());
-            Log::error($e->getMessage());
-            Log::error(print_r($oauth->getLastResponse(), true));
-            Log::error(print_r($oauth->getLastResponseInfo(), true));
-            exit;
-        }
+        return OauthHelper::get('/users/__SELF__/treasuries');
     }
 
 }
