@@ -26,14 +26,14 @@ class Etsy
      *
      * @return array
      */
-    public static function favorites()
+    public static function favorites($user=null)
     {
         $params = array(
                 'fields'=>'listing_id',
                 'includes'=>'Listing'
             );
 
-        $response = OauthHelper::get('/users/__SELF__/favorites/listings', $params);
+        $response = OauthHelper::get(static::user_url($user) . 'favorites/listings', $params, $user);
 
         return static::flatten($response);
     }
@@ -42,22 +42,24 @@ class Etsy
      * Orders
      *  get orders associated with the current user
      *
+     * @param  User
      * @return array
      */
-    public static function orders()
+    public static function orders($user=null)
     {
-        return OauthHelper::get('users/__SELF__/orders');
+        return OauthHelper::get(static::user_url($user) . 'orders', array(), $user);
     }
 
     /**
     * Payments
     *  get payment information for the current user(seller)
     *
+    * @param  User
     * @return array
     */
-    public static function payments()
+    public static function payments($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/payments/templates');
+        return OauthHelper::get(static::user_url($user) . 'payments/templates', array(), $user);
     }
     
     /**
@@ -66,11 +68,12 @@ class Etsy
      *  get user info including creation tsz for the current user
      *  also returns feedback % score
      *
+     * @param  User
      * @return array
      */
-    public static function user()
+    public static function user($user=null)
     {
-        return OauthHelper::get('/users/__SELF__', array('includes'=>'Profile'));
+        return OauthHelper::get(static::user_url($user), array('includes'=>'Profile'), $user);
     }
 
     /**
@@ -78,109 +81,132 @@ class Etsy
      * 
      * Get the user avatar URL
      *
+     * @param  User
      * @return array
      */
-    public static function avatar()
+    public static function avatar($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/profile');
+        return OauthHelper::get(static::user_url($user) . 'profile', array(), $user);
     }
 
     /**
      * Billing
      *  get billing info for the current user
      *
+     * @param  User
      * @return array
      */
-    public static function billing()
+    public static function billing($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/billing/overview');
+        return OauthHelper::get(static::user_url($user) . 'billing/overview', array(), $user);
     }
 
     /**
     * Cart
     * get info on current user's cart
     *
-    *@return array
+    * @param  User
+    * @return array
     */
-    public static function cart()
+    public static function cart($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/carts');
+        return OauthHelper::get(static::user_url($user) . 'carts', array(), $user);
     }
 
     /**
      * Favorited
      *  show who and how many people are favoriting the current user
      *
+     * @param  User
      * @return array
      */
-    public static function favorited()
+    public static function favorited($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/favored-by');
+        return OauthHelper::get(static::user_url($user) . 'favored-by', array(), $user);
     }
     /**
      * Receipt
      *  get receipt information for the current user
      *
+     * @param  User
      * @return array
      */
-    public static function receipt()
+    public static function receipt($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/receipts');
+        return OauthHelper::get(static::user_url($user) . 'receipts', array(), $user);
     }
 
     /**
      * Shipping
      *  get current shipping information for the current user
      *
+     * @param  User
      * @return array
      */
-    public static function shipping()
+    public static function shipping($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/shipping/templates');
+        return OauthHelper::get(static::user_url($user) . 'shipping/templates', array(), $user);
     }
 
     /**
      * Shops
      *  get shops for the current user
      *
+     * @param  User
      * @return array
      */
-    public static function shops()
+    public static function shops($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/shops');
+        return OauthHelper::get(static::user_url($user) . 'shops', array(), $user);
     }
 
     /**
      * Teams
      *  get teams current user is a part of
      *
+     * @param  User
      * @return array
      */
-    public static function teams()
+    public static function teams($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/teams');
+        return OauthHelper::get(static::user_url($user) . 'teams', array(), $user);
     }
 
     /**
      * Transactions
      *  get transactions between current user and shop 
      *
+     * @param  User
      * @return array
      */
-    public static function transactions()
+    public static function transactions($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/transactions');
+        return OauthHelper::get(static::user_url($user) . 'transactions', array(), $user);
     }
 
     /**
      * Treasury
      *  get treasury of current user 
      *
+     * @param  User
      * @return array
      */
-    public static function treasury()
+    public static function treasury($user=null)
     {
-        return OauthHelper::get('/users/__SELF__/treasuries');
+        return OauthHelper::get(static::user_url($user) + 'treasuries', array(), $user);
+    }
+
+    /**
+     * User URL
+     *
+     * Get base user url
+     *
+     * @param  User
+     * @return string
+     */
+    protected static function user_url($user=null)
+    {
+        return '/users/' . ((is_null($user)) ? '__SELF__' : $user->user_id) . '/';
     }
 
     /**
