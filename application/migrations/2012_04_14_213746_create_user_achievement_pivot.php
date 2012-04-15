@@ -24,7 +24,7 @@ class Create_User_Achievement_Pivot {
 	 */
 	public function down()
 	{
-		Schema::drop('achivement_user');
+		Schema::drop('achievement_user');
 	}
 
 }
