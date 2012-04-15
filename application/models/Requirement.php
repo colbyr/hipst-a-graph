@@ -27,7 +27,6 @@ class Requirement extends Aware
             ->first();
         if ($r === null)
         {
-            echo "sex\n";
             $r = new Requirement();
             $r->value = $value;
             $r->verb = $verb;
