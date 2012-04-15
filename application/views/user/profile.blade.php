@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="body">
-                        {{ $fav->Listing->title }}
+                        {{ Str::limit($fav->Listing->title, 50) }}
                     </div>
 
                 </a>
