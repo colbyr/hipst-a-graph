@@ -41,8 +41,18 @@ class User extends Aware
      */
     public function name($full=false)
     {
-        $name = $this->first_name . ' ';
-        $name .= $full ? $this->last_name : Str::limit($this->last_name, 1, '') . '.';
+        $name = $this->first_name;
+
+        if(empty($this->last_name))
+        {
+            $name .= ' ' . ($full ? $this->last_name : Str::limit($this->last_name, 1, '') . '.');
+        }
+
+        if (empty($name))
+        {
+            $name = $this->login_name;
+        }
+
         return $name;
     }
 

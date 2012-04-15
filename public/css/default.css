@@ -195,5 +195,16 @@ a, a:hover {
     padding: 1em 1em .6em;
 }
 .favorite img {
-    border: 2px solid #D16C5C;
+    border: 3px solid #D16C5C;
+}
+
+.score {
+    text-align: right;
+}
+    .score h1 {
+        color: #E6AF83;
+        font-size: 3.5em;
+    }
+.note {
+    font-size: .7em;
 }
