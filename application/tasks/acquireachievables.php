@@ -31,51 +31,55 @@ public class AquireAchievables
             //get query
             $query = $unearned->query;
 
-            if($query != $oldquery){
+            if($query != $oldquery)
+            {
                 $json = getEtsyFunction($query);
-                $flat_json = flatten($json);
             }
 
-            if(check($flat_json, $unearned))
+            if(check($json, $unearned))
+            {  
                 $arguments[0]->achievements()->attach($unearned->id);
+            }
 
             $oldquery = $query;
        }
     }
 
-    public function check($flat_json, $unearned){
+    public function check($json, $unearned){
       //flatten the json into a single dimmensional map
-      $results = array_keys($flat_json, $unearned->noun);
+      $results = array_keys($json, $unearned->noun);
 
-      //look through each result
-      foreach($results as $r){
-        $value = $flat_json[$r];
-        switch($unearned->verb)
+      $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($json));
+      foreach($it as $key => $value)
+      {
+        if($key === $unearned->noun)
         {
-          case '=':
-            if($value === $unearned->value)
-            {
-              return true;
-            }
-            break;
-          case '!=':
-            if($value != $unearned->value)
-            {
-              return true;
-            }
-            break;
-          case '=>':
-            if($value >= $unearned->value)
-            {
-              return true;
-            }
-            break;
-          default:
-            echo "invalid verb";
+          switch($unearned->verb)
+          {
+            case '=':
+              if($value === $unearned->value)
+              {
+                return true;
+              }
+              break;
+            case '!=':
+              if($value != $unearned->value)
+              {
+                return true;
+              }
+              break;
+            case '=>':
+              if($value >= $unearned->value)
+              {
+                return true;
+              }
+              break;
+            default:
+              echo "invalid verb";
+          }
         }
-        if( $unearned->verb $unearned->value);
-          return true;
       }
+      return false;
     }
 
     public function flatten($json){
@@ -84,17 +88,6 @@ public class AquireAchievables
         array_push($a, $v);
       }
     }
-
-    public function array_max_depth($array, $depth = 0) {
-      $max_sub_depth = 0;
-      foreach (array_filter($array, 'is_array') as $subarray) {
-        $max_sub_depth = max(
-        $max_sub_depth,
-        array_max_depth($subarray, $depth + 1)
-      );
-    }
-    return $max_sub_depth + $depth;
-}
 
     public function getAchievements($user)
     {
