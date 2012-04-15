@@ -41,14 +41,15 @@ class User extends Aware
     {
         $oauth = OauthHelper::authed($this->oauth_token, $this->oauth_token_secret);
         try {
-            $data = $oauth->fetch("http://openapi.etsy.com/v2/users/__SELF__", null, OAUTH_HTTP_METHOD_GET);
-            $json = $oauth->getLastResponse();
-            $res = json_decode($json, true);
-            $res = $res['results'][0];
-            $this->user_id = $res['user_id'];
-            $this->login_name = $res['login_name'];
-            $this->primary_email = $res['primary_email'];
-            $this->sync_avatar();
+            $data = Etsy::user();
+            $profile = $data->results[0]->Profile;
+            
+            $this->user_id = $profile->user_id;
+            $this->login_name = $profile->login_name;
+            $this->primary_email = $data->results[0]->primary_email;
+            $this->first_name = $profile->first_name;
+            $this->last_name = $profile->last_name;
+            $this->gender = $profile->gender;
             return true;
         } catch (OAuthException $e) {
             Log::error($e->getMessage());
@@ -56,19 +57,6 @@ class User extends Aware
             Log::error(print_r($oauth->getLastResponseInfo(), true));
             return false;
         }
-    }
-
-    /**
-     * Sync Avatar
-     *
-     * get the user avatar URL
-     *
-     * @return void
-     */
-    public function sync_avatar()
-    {
-        $res = Etsy::avatar();
-        $this->avatar_url = $res->results->src;
     }
 
     /**
