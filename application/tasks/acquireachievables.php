@@ -20,7 +20,8 @@ class AquireAchievables
         //here is where we should do it in a background process
         //but for now lets do this:
         //loop through the array of unearned achievements
-        
+
+        //make variables that persist during the foreach 
         $json;
         $query;
         $oldquery;
@@ -32,29 +33,28 @@ class AquireAchievables
 
             if($query != $oldquery){
                 $json = getEtsyFunction($query);
+                $flat_json = flatten($json);
             }
 
-            if(check($json, $unearned))
+            if(check($flat_json, $unearned))
                 $arguments[0]->achievements()->attach($unearned->id);
 
             $oldquery = $query;
        }
     }
 
-    public function check($json, $unearned){
-      $noun = $unearned->noun;
-      $verb = $unearned->verb;
-      $value = $unearned->value;
-
+    public function check($flat_json, $unearned){
+      //flatten the json into a single dimmensional map
       $results = array_keys($flat_json, $unearned->noun);
 
+      //look through each result
       foreach($results as $r){
-        $value = $flat_jon[$r];
+        $value = $flat_json[$r];
         switch($unearned->verb)
         {
           case '=':
             if($value === $unearned->value)
-            { 
+            {
               return true;
             }
             break;
@@ -76,19 +76,13 @@ class AquireAchievables
         if( $unearned->verb $unearned->value);
           return true;
       }
-
-      //TODO: Search JSON for the noun of $unearned
-      //Compare values between $unearned and $json (with $verb)
-      //return a boolean (is above comparison true or false)
     }
 
-    public function flatten(){
-      $a = array();
-      $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($a));
+    public function flatten($json){
+      $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($json));
       foreach($it as $v) {
         array_push($a, $v);
       }
-
     }
 
     public function array_max_depth($array, $depth = 0) {
@@ -110,22 +104,15 @@ class AquireAchievables
     public function unearned($achievements)
     {
         $array;
+        //add the id's of earned achievements into the array
         foreach ($achievements as $achievement) 
         {
             array_push($array, $achievement->id);
         }
+        //find the unearned achievements and return sorted
         return $unearned = DB::table('achievements')
                 ->where_not_in('id', $array)
                 ->order_by('query', 'desc')
                 ->get();
     }
-
-    // public function buildArray($unearned)
-    // {
-    //     foreach ($unearned as $achievement) 
-    //     {
-            
-    //     }
-    // }
-
 }

@@ -18,18 +18,20 @@ class Requirement extends Aware
      */
     public static $accessible = array('noun', 'verb', 'value');
 
-    public static function make_or_retrieve($noun, $verb, $value)
+    public static function make_or_retrieve($query, $noun, $verb, $value)
     {
         $r = Requirement::where('value', '=' ,$value)
             ->where('verb', '=' ,$verb)
-            ->where('noun', '=' ,$noun)->first();
+            ->where('noun', '=' ,$noun)
+            ->where('query', '=' ,$query)
+            ->first();
         if ($r === null)
         {
-            echo "sex\n";
             $r = new Requirement();
             $r->value = $value;
             $r->verb = $verb;
             $r->noun = $noun;
+            $r->query = $query;
             $r->save();
         } 
         return $r;
