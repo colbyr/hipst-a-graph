@@ -28,7 +28,14 @@ class Etsy
      */
     public static function favorites()
     {
-        return OauthHelper::get('/users/__SELF__/favorites/listings');
+        $params = array(
+                'fields'=>'listing_id',
+                'includes'=>'Listing'
+            );
+
+        $response = OauthHelper::get('/users/__SELF__/favorites/listings', $params);
+
+        return static::flatten($response);
     }
 
     /**
@@ -174,6 +181,19 @@ class Etsy
     public static function treasury()
     {
         return OauthHelper::get('/users/__SELF__/treasuries');
+    }
+
+    /**
+     * Flatten
+     *
+     * method to flatten oauth responses
+     *
+     * @param  $response stdObject
+     * @return array
+     */
+    protected static function flatten($response)
+    {
+        return $response->results;
     }
 
 }
