@@ -7,10 +7,10 @@ public class AquireAchievables
         return Etsy::$query();
     }
 
-    public function run($user)
+    public function run($arguments)
     {
         //get an array of all of the achievement already earned
-        $achievements = getAchievements($user);
+        $achievements = getAchievements($arguments[0]);
         
         //get the achievements not earned yet
         //array of unearned achievements
@@ -34,7 +34,7 @@ public class AquireAchievables
             }
 
             if(check($json, $unearned))
-                $user->achievements()->attach($unearned->id);
+                $arguments[0]->achievements()->attach($unearned->id);
 
             $oldquery = $query;
        }
