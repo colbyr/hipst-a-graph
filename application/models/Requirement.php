@@ -20,17 +20,18 @@ class Requirement extends Aware
 
     public static function make_or_retrieve($noun, $verb, $value)
     {
-        $r = static::where_value($value)->where_verb($verb)->where_noun($noun)->first();
-        if (is_null($r))
+        $r = Requirement::where('value', '=' ,$value)
+            ->where('verb', '=' ,$verb)
+            ->where('noun', '=' ,$noun)->first();
+        if ($r === null)
         {
-            echo "sex";
+            echo "sex\n";
             $r = new Requirement();
             $r->value = $value;
             $r->verb = $verb;
             $r->noun = $noun;
             $r->save();
         } 
-
         return $r;
     }
 

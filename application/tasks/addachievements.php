@@ -13,8 +13,8 @@ class addachievements_task
     public function run($arguments)
     {
         $file_string = file_get_contents(getcwd()."/application/tasks/achievements.json");
-        $jason = json_decode($file_string);
-        foreach ($jason as $key => $value) 
+        $json = json_decode($file_string);
+        foreach ($json as $key => $value) 
         {
             $a = new Achievement();
             $a->name = $value->name;
@@ -26,11 +26,13 @@ class addachievements_task
             }
             foreach($value->requirements as $requirement)
             {
-                $r = Requirement::make_or_retrieve(
-                    $requirement->noun,
-                     $requirement->verb,
-                      $requirement->value);
-                $a->requirements()->insert($r);
+                 $r = Requirement::make_or_retrieve(
+                        $requirement->noun,
+                        $requirement->verb,
+                        $requirement->value
+                        );
+                 $a->requirements()->attach($r->id);
+
             }
 
         }
