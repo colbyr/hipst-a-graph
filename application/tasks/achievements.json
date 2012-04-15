@@ -1,6 +1,5 @@
 [
 {
-	//1
 	"name":"Sucked In!",
 	"value":5,
 	"description":"You bought something!",
@@ -9,7 +8,6 @@
 	]	
 },
 {
-	//2
 	"name":"Look at All my Shiny Trinkets",
 	"value":15,
 	"description":"You bought 10 things!",
@@ -18,7 +16,6 @@
 	]
 },
 {
-	//3
     "name":"All Around the World",
     "value":10,
     "description":"You bought something from another country!",
@@ -27,25 +24,22 @@
 	]
 },
 {
-	//4
 	"name":"Methodical Shopper",
 	"value":10,
 	"description":"You bought something from 2 different catagories!",            
 	"requirements":[
-		{"query":"listing","noun":"catagory", "verb":"=>", "value":"2"}       //Ask Colby
+		{"query":"listing","noun":"catagory", "verb":"=>", "value":"2"}       
 	]
 }, 
 {
-	//5
 	"name":"Big Spender",
 	"value":15,
 	"description":"Spent over $50 on a single item!", 
 	"requirements":[
-		{"query":"receipt","noun":"total_price", "verb":"=>", "value":"50.00"}   //Dunno how to do, ask Colby
+		{"query":"receipt","noun":"total_price", "verb":"=>", "value":"50.00"}   
 	]
 },
 {
-	//6
 	"name":"Shopkeep!",
 	"value":20,
 	"description":"You have a store!",
@@ -54,7 +48,6 @@
 	]
 },
 {
-	//7
 	"name":"Big Business",
 	"value":30,
 	"description":"Own 2 or more stores!",
@@ -63,7 +56,6 @@
 	]
 },
 {
-	//8
 	"name":"Distributor",
 	"value":15,
 	"description":"You sold $50 of stuff!", 
@@ -72,16 +64,14 @@
 	]
 },
 {
-	//9
 	"name":"You want it? I got it.",
-"value":20,
+    "value":20,
 	"description":"You sold in multiple catagories!",
 	"requirements":[
-		{"query":"shops","noun":"category_id", "verb":"=>", "value":"2"}      //Guess what? I don't know what to do. Guess who to ask? You guessed it. Colby.
+		{"query":"shops","noun":"category_id", "verb":"=>", "value":"2"}      
 	]
 },
 {
-	//10
 	"name":"Role Model",
 	"value":30,
 	"description":"Obtain 90% or better feedback",
@@ -90,7 +80,6 @@
 		]
 },
 {
-	//11
 	"name":"The Lover",
 	"value":5,
 	"description":"Favorited 10 things", 
@@ -99,7 +88,6 @@
 	]
 },
 {
-	//12
 	"name":"Ancient History",
 	"value":10,
 	"description":"Had an account for 30 days", 
