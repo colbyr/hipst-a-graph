@@ -44,17 +44,17 @@
 
             <li class="media">
 
-            <a href="{{ $fav->Listing->url }}" target="_blank">
+                <a class="favorite" title="View on Etsy" href="{{ $fav->Listing->url }}" target="_blank">
 
-                <div class="img">
-                    {{ HTML::image($fav->Listing->MainImage->url_75x75) }}
-                </div>
+                    <div class="img">
+                        {{ HTML::image($fav->Listing->MainImage->url_75x75) }}
+                    </div>
 
-                <div class="body">
-                    {{ $fav->Listing->title }}
-                </div>
+                    <div class="body">
+                        {{ $fav->Listing->title }}
+                    </div>
 
-            </a>
+                </a>
 
             </li>
 

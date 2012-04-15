@@ -186,5 +186,14 @@ a, a:hover {
     }
 
 .favorites {
+    
+}
+.favorite {
+    display: block;
+    overflow: hidden;
     background-color: #D6D9BA;
+    padding: 1em 1em .6em;
+}
+.favorite img {
+    border: 2px solid #D16C5C;
 }
