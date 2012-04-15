@@ -26,14 +26,14 @@ class Etsy
      *
      * @return array
      */
-    public static function favorites()
+    public static function favorites($etsy_id=0)
     {
         $params = array(
                 'fields'=>'listing_id',
                 'includes'=>'Listing'
             );
 
-        $response = OauthHelper::get('/users/__SELF__/favorites/listings', $params);
+        $response = OauthHelper::get(static::user_url($etsy_id) . 'favorites/listings', $params);
 
         return static::flatten($response);
     }
@@ -44,9 +44,9 @@ class Etsy
      *
      * @return array
      */
-    public static function orders()
+    public static function orders($etsy_id=0)
     {
-        return OauthHelper::get('users/__SELF__/orders');
+        return OauthHelper::get(static::user_url($etsy_id) . 'orders');
     }
 
     /**
@@ -55,9 +55,9 @@ class Etsy
     *
     * @return array
     */
-    public static function payments()
+    public static function payments($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/payments/templates');
+        return OauthHelper::get(static::user_url($etsy_id) . 'payments/templates');
     }
     
     /**
@@ -68,9 +68,9 @@ class Etsy
      *
      * @return array
      */
-    public static function user()
+    public static function user($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__', array('includes'=>'Profile'));
+        return OauthHelper::get(static::user_url($etsy_id), array('includes'=>'Profile'));
     }
 
     /**
@@ -80,9 +80,9 @@ class Etsy
      *
      * @return array
      */
-    public static function avatar()
+    public static function avatar($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/profile');
+        return OauthHelper::get(static::user_url($etsy_id) . 'profile');
     }
 
     /**
@@ -91,9 +91,9 @@ class Etsy
      *
      * @return array
      */
-    public static function billing()
+    public static function billing($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/billing/overview');
+        return OauthHelper::get(static::user_url($etsy_id) . 'billing/overview');
     }
 
     /**
@@ -102,9 +102,9 @@ class Etsy
     *
     *@return array
     */
-    public static function cart()
+    public static function cart($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/carts');
+        return OauthHelper::get(static::user_url($etsy_id) . 'carts');
     }
 
     /**
@@ -113,9 +113,9 @@ class Etsy
      *
      * @return array
      */
-    public static function favorited()
+    public static function favorited($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/favored-by');
+        return OauthHelper::get(static::user_url($etsy_id) . 'favored-by');
     }
     /**
      * Receipt
@@ -123,9 +123,9 @@ class Etsy
      *
      * @return array
      */
-    public static function receipt()
+    public static function receipt($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/receipts');
+        return OauthHelper::get(static::user_url($etsy_id) . 'receipts');
     }
 
     /**
@@ -134,9 +134,9 @@ class Etsy
      *
      * @return array
      */
-    public static function shipping()
+    public static function shipping($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/shipping/templates');
+        return OauthHelper::get(static::user_url($etsy_id) . 'shipping/templates');
     }
 
     /**
@@ -145,9 +145,9 @@ class Etsy
      *
      * @return array
      */
-    public static function shops()
+    public static function shops($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/shops');
+        return OauthHelper::get(static::user_url($etsy_id) . 'shops');
     }
 
     /**
@@ -156,9 +156,9 @@ class Etsy
      *
      * @return array
      */
-    public static function teams()
+    public static function teams($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/teams');
+        return OauthHelper::get(static::user_url($etsy_id) . 'teams');
     }
 
     /**
@@ -167,9 +167,9 @@ class Etsy
      *
      * @return array
      */
-    public static function transactions()
+    public static function transactions($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/transactions');
+        return OauthHelper::get(static::user_url($etsy_id) . 'transactions');
     }
 
     /**
@@ -178,9 +178,22 @@ class Etsy
      *
      * @return array
      */
-    public static function treasury()
+    public static function treasury($etsy_id=0)
     {
-        return OauthHelper::get('/users/__SELF__/treasuries');
+        return OauthHelper::get(static::user_url($etsy_id) + 'treasuries');
+    }
+
+    /**
+     * User URL
+     *
+     * Get base user url
+     *
+     * @param  integer
+     * @return string
+     */
+    protected static function user_url($etsy_id=0)
+    {
+        return '/users/' . (($etsy_id === 0) ? '__SELF__' : $etsy_id) . '/';
     }
 
     /**
