@@ -1,5 +1,5 @@
 <?php
-public class AquireAchievables
+class AquireAchievables
 {
     $flat_json;
 
