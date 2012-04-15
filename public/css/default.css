@@ -30,10 +30,28 @@ red    - #D16C5C
     float: left;
 }
 
+/* Colors */
+.dark {
+    color: #472D38;
+}
+.blue {
+    color: #72AD97;
+}
+.tan {
+    color: #72AD97;
+}
+.orange {
+    color: #E6AF83;
+}
+.red {
+    color: #D16C5C;
+}
+
 /* body */
 html {
     height: 100%;
     color: #472D38;
+    font-family: Georgia, serif;
 }
 body {
     height:100%;
@@ -55,16 +73,20 @@ body {
     background-color: #472D38;
     padding: .25em;
 }
-.header .title {
-    margin-top: 3px;
-}
 .header a {
     color: #fff;
+}
+.header a:hover {
+    text-decoration: none;
+}
+.header .title {
+    margin-top: 3px;
 }
 .header-inner > p {
     margin-top: 7px;
     margin-bottom: 0;
     float: right;
+    color: #999;
 }
 .header-inner > img {
     margin: 0 20px 0 0 ;
@@ -100,9 +122,32 @@ body {
 h1, h2, h3 {
     font-family: 'Averia Serif Libre', Georgia, serif;
 }
-a {
+a, a:hover {
     color: #D16C5C;
 }
+
+.msg {
+    color: #fff;
+    padding: 5px 10px;
+    background-color: #D6D9BA;
+    margin-bottom: .5em;
+    border-radius: 5px;
+}
+    .msg > p {
+        margin-bottom: 0;
+    }
+    .msg-error{
+        background-color: #D16C5C;
+    }
+    .msg-success{
+        background-color: #72AD97;
+    }
+    .msg-info{
+        background-color: #D6D9BA;
+    }
+    .msg-warning{
+        background-color: #E6AF83;
+    }
 
 /* Logo */
 .logo,
@@ -123,3 +168,13 @@ a {
     position:absolute;
     left:-99999px;
 }
+
+/* User profile */
+.profile {
+    color: #fff;
+    background-color: #72AD97;
+    padding: 1em 1em .6em;
+}
+    .profile a {
+        color: #472D38;
+    }

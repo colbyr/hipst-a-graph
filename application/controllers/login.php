@@ -40,7 +40,7 @@ class Login_Controller extends Base_Controller {
         }
         else
         {
-            return View::make('home.login')->with('error', 'wrong user/pass');
+            return View::make('home.login')->with('message', array('type'=>'error', 'text'=>'Incorrect username or password.'));
         }
     }
 

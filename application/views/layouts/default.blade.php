@@ -30,7 +30,7 @@
     <h1 class="title no-buffer">{{ HTML::link('/', 'Hipst-a-graph') }}</h1>
 
     @if (Auth::check())
-        <p>Logged in as {{ HTML::link('user/profile', Auth::user()->username) }}, {{ HTML::link('login/leave', 'logout') }}?</p>
+        <p>Logged in as {{ HTML::link('user/profile', Auth::user()->name()) }} --- {{ HTML::link('login/leave', 'logout') }}</p>
     @else
         <p>{{ HTML::link('login', 'Login') }}</p>
     @endif
@@ -39,6 +39,20 @@
 </div>
 
 <div class="wrapper">
+
+<!-- errors -->
+<div class="messages grids">
+
+  @if(isset($message))
+  <div class="grid-12">
+    <p class="msg msg-{{ $message['type'] }}">
+      <strong class="dark">{{ Str::title($message['type']) }}:</strong>
+      {{ $message['text'] }}
+    </p>
+  </div>
+  @endif
+
+</div>
 
 <!-- content -->
 <div class="content grids">
