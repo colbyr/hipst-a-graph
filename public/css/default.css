@@ -219,7 +219,7 @@ a, a:hover {
 .top .media {
     margin-bottom: 0;
 }
-.top .media:first-child {
+.top > .media:first-child {
     background-color: #72AD97;
     color: #fff;
 }

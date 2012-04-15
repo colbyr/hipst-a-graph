@@ -5,7 +5,7 @@
 <div class="grid-4">
 
     <div class="score">
-        <h1 class="no-buffer">{{ $user->score }} HP*</h1>
+        <h1 class="no-buffer text-left">{{ $user->score }} HP*</h1>
         <p class="note no-buffer">* HP = <i>hipster points</i></p>
     </div>
 
