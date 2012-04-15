@@ -38,11 +38,25 @@
 
         <h3>Favorites</h3>
 
-        <ul class="no-list">
+        <ul class="list-none">
 
         @foreach($favorites as $fav)
 
-            <li>{{ $fav }}</li>
+            <li class="media">
+
+            <a href="{{ $fav->Listing->url }}" target="_blank">
+
+                <div class="img">
+                    {{ HTML::image($fav->Listing->MainImage->url_75x75) }}
+                </div>
+
+                <div class="body">
+                    {{ $fav->Listing->title }}
+                </div>
+
+            </a>
+
+            </li>
 
         @endforeach
 

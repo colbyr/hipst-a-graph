@@ -30,7 +30,7 @@ class Etsy
     {
         $params = array(
                 'fields'=>'listing_id',
-                'includes'=>'Listing'
+                'includes'=>'Listing(fields=listing_id,title,url),Listing/MainImage'
             );
 
         $response = OauthHelper::get(static::user_url($user) . 'favorites/listings', $params, $user);
@@ -51,12 +51,12 @@ class Etsy
     }
 
     /**
-    * Payments
-    *  get payment information for the current user(seller)
-    *
-    * @param  User
-    * @return array
-    */
+     * Payments
+     *  get payment information for the current user(seller)
+     *
+     * @param  User
+     * @return array
+     */
     public static function payments($user=null)
     {
         return OauthHelper::get(static::user_url($user) . 'payments/templates', array(), $user);
@@ -102,12 +102,12 @@ class Etsy
     }
 
     /**
-    * Cart
-    * get info on current user's cart
-    *
-    * @param  User
-    * @return array
-    */
+     * Cart
+     * get info on current user's cart
+     *
+     * @param  User
+     * @return array
+     */
     public static function cart($user=null)
     {
         return OauthHelper::get(static::user_url($user) . 'carts', array(), $user);

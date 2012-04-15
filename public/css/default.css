@@ -29,6 +29,10 @@ red    - #D16C5C
 .pull-left {
     float: left;
 }
+.list-none {
+    margin-left: 0;
+    list-style: none;
+}
 
 /* Colors */
 .dark {
