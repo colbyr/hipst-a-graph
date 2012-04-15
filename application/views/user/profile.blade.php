@@ -40,12 +40,6 @@
 
         <ul class="no-list">
 
-        @foreach($favorites as $fav)
-
-            <li>{{ $fav }}</li>
-
-        @endforeach
-
         </ul>
 
     </div>
