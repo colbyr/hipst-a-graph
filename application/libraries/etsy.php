@@ -182,7 +182,7 @@ class Etsy
      * @param  string $query
      * @return array
      */
-    public static function get($query, $params)
+    public static function get($query, $params=array())
     {
         $oauth = Auth::user()->oauth();
         try {

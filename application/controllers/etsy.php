@@ -30,4 +30,10 @@ class Etsy_Controller extends Base_Controller {
         print_r(Etsy::shops());
     }
 
+    public function get_get($method)
+    {
+        echo '<pre>';
+        print_r(Etsy::$method());
+    }
+
 }
