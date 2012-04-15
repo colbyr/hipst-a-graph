@@ -1,110 +1,132 @@
 [
-{
-	//1
-	"name":"Sucked In!",
-	"value":5,
-	"description":"You bought something!",
-	"requirements":[
-		{"query":"user", "noun":"transaction_buy_count", "verb":"=>", "value": "1"}
-	]	
-},
-{
-	//2
-	"name":"Look at All my Shiny Trinkets",
-	"value":15,
-	"description":"You bought 10 things!",
-	"requirements":[
-		{"query":"user","noun":"transaction_buy_count", "verb":"=>", "value":"10"}
-	]
-},
-{
-	//3
-    "name":"All Around the World",
-    "value":10,
-    "description":"You bought something from another country!",
-    "requirements":[
-		{"query":"user","noun":"country_id", "verb":"!=", "value":"selfCC"}
-	]
-},
-{
-	//4
-	"name":"Methodical Shopper",
-	"value":10,
-	"description":"You bought something from 2 different catagories!",            
-	"requirements":[
-		{"query":"listing","noun":"catagory", "verb":"=>", "value":"2"}       //Ask Colby
-	]
-}, 
-{
-	//5
-	"name":"Big Spender",
-	"value":15,
-	"description":"Spent over $50 on a single item!", 
-	"requirements":[
-		{"query":"receipt","noun":"total_price", "verb":"=>", "value":"50.00"}   //Dunno how to do, ask Colby
-	]
-},
-{
-	//6
-	"name":"Shopkeep!",
-	"value":20,
-	"description":"You have a store!",
-	"requirements":[
-		{"query":"shops","noun":"count", "verb":"=>", "value":"1"}
-	]
-},
-{
-	//7
-	"name":"Big Business",
-	"value":30,
-	"description":"Own 2 or more stores!",
-	"requirements":[
-		{"query":"shops","noun":"count", "verb":"=>", "value":"2"}
-	]
-},
-{
-	//8
-	"name":"Distributor",
-	"value":15,
-	"description":"You sold $50 of stuff!", 
-	"requirements":[
-		{"query":"shops","noun":"total_price", "verb":"=>", "value":"50.00"}
-	]
-},
-{
-	//9
-	"name":"You want it? I got it.",
-"value":20,
-	"description":"You sold in multiple catagories!",
-	"requirements":[
-		{"query":"shops","noun":"category_id", "verb":"=>", "value":"2"}      //Guess what? I don't know what to do. Guess who to ask? You guessed it. Colby.
-	]
-},
-{
-	//10
-	"name":"Role Model",
-	"value":30,
-	"description":"Obtain 90% or better feedback",
-	"requirements":[
-		{"query":"user","noun":"score", "verb":"=>", "value":"90"}
-		]
-},
-{
-	//11
-	"name":"The Lover",
-	"value":5,
-	"description":"Favorited 10 things", 
-	"requirements":[
-		{"query":"active","noun":"count", "verb":"=>", "value":"10"}   
-	]
-},
-{
-	//12
-	"name":"Ancient History",
-	"value":10,
-	"description":"Had an account for 30 days", 
-	"requirements":[
-		{"query":"user","noun":"tsz" , "verb":"=>" , "value":"30"}
-	]
-}
+    {
+        "name": "Sucked In!",
+        "value": 5,
+        "description": "You bought something!",
+        "requirements": [
+            {
+                "query": "transactions",
+                "noun": "count",
+                "verb": "=>",
+                "value": "1"
+            }
+        ]
+    },
+    {
+        "name": "Look at All my Shiny Trinkets",
+        "value": 15,
+        "description": "You bought 10 things!",
+        "requirements": [
+            {
+                "query": "transactions",
+                "noun": "count",
+                "verb": "=>",
+                "value": "10"
+            }
+        ]
+    },
+    {
+        "name": "All Around the World",
+        "value": 10,
+        "description": "You bought something from another country!",
+        "requirements": [
+            {
+                "query": "user",
+                "noun": "counrty",
+                "verb": "!=",
+                "value": "206"
+            }
+        ]
+    },
+    {
+        "name": "Methodical Shopper",
+        "value": 10,
+        "description": "You bought something from 2 different catagories!",
+        "requirements": [
+            {
+                "query": "listing",
+                "noun": "catagory",
+                "verb": "=>",
+                "value": "2"
+            }
+        ]
+    },
+    {
+        "name": "Big Spender",
+        "value": 15,
+        "description": "Spent over $50 on a single item!",
+        "requirements": [
+            {
+                "query": "orders",
+                "noun": "total",
+                "verb": "=>",
+                "value": "50"
+            }
+        ]
+    },
+    {
+        "name": "Shopkeep!",
+        "value": 20,
+        "description": "You have a store!",
+        "requirements": [
+            {
+                "query": "shops",
+                "noun": "count",
+                "verb": "=>",
+                "value": "1"
+            }
+        ]
+    },
+    {
+        "name": "Big Business",
+        "value": 30,
+        "description": "Own 2 or more stores!",
+        "requirements": [
+            {
+                "query": "shops",
+                "noun": "count",
+                "verb": "=>",
+                "value": "2"
+            }
+        ]
+    },
+    {
+        "name": "Role Model",
+        "value": 30,
+        "description": "Obtain 90% or better feedback",
+        "requirements": [
+            {
+                "query": "user",
+                "noun": "score",
+                "verb": "=>",
+                "value": "90"
+            }
+        ]
+    },
+    {
+        "name": "The Lover",
+        "value": 5,
+        "description": "Favorited 10 things",
+        "requirements": [
+            {
+                "query": "active",
+                "noun": "count",
+                "verb": "=>",
+                "value": "10"
+            }
+        ]
+    },
+    {
+        "name": "Ancient History",
+        "value": 10,
+        "description": "Had an account for 30 days",
+        "requirements": [
+            {
+                "query": "user",
+                "noun": "tsz",
+                "verb": "=>",
+                "value": "30"
+            }
+        ]
+    }
 ]
