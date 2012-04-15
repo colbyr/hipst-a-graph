@@ -50,9 +50,7 @@ class OauthHelper
         $oauth = static::oauth();
 
         // make an API request for your temporary credentials
-        $request_token = $oauth->getRequestToken(
-            Config::get('oauth.url') . "oauth/request_token",
-            Config::get('callback'));
+        $request_token = $oauth->getRequestToken(Config::get('oauth.url') . 'oauth/request_token', Config::get('callback'));
 
         return $request_token;
     }
