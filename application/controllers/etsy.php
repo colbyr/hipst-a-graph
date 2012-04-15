@@ -27,7 +27,7 @@ class Etsy_Controller extends Base_Controller {
     public function get_index()
     {
         echo '<pre>';
-        print_r(Etsy::favorites());
+        print_r(Etsy::treasury());
     }
 
 }
