@@ -73,7 +73,7 @@ class AcquireAchievables
           default:
             echo "invalid verb";
         }
-        if( $unearned->verb $unearned->value);
+        if( $unearned->verb === $unearned->value)
           return true;
       }
 
