@@ -56,17 +56,15 @@ red    - #D16C5C
 
 /* body */
 html {
-    height: 100%;
     color: #472D38;
     font-family: Georgia, serif;
 }
 body {
-    height:100%;
     padding-top: 60px;
 }
 .wrapper {
     background-color: #fff;
-    min-height: 100%;
+    
 }
 .header {
     position: fixed;
