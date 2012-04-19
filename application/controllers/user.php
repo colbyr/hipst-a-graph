@@ -11,7 +11,6 @@ class User_Controller extends Base_Controller {
 
     public function __construct()
     {
-
         parent::__construct();
     }
 
@@ -24,6 +23,11 @@ class User_Controller extends Base_Controller {
     {
 
         $user = ($id === 0) ? Auth::user() : User::find($id);
+
+        if ($id === 0)
+        {
+            if (Auth::user()->oauth_token === '') return Redirect::to('oauth');
+        }
 
         if (is_null($user) || (!Auth::check() && $id === 0))
         {
