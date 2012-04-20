@@ -69,9 +69,9 @@ return array(
 
 		'mysql' => array(
 			'driver'   => 'mysql',
-			'host'     => 'localhost',
+			'host'     => 'tunnel.pagodabox.com',
 			'database' => 'hipsta',
-			'username' => 'root',
+			'username' => 'andrea',
 			'password' => 'root',
 			'charset'  => 'utf8',
 			'prefix'   => '',
@@ -82,7 +82,7 @@ return array(
 			'host'     => 'localhost',
 			'database' => 'database',
 			'username' => 'root',
-			'password' => '',
+			'password' => PASS,
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),
