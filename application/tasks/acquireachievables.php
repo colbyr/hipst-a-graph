@@ -74,6 +74,8 @@ class Acquireachievables_Task
             }
         }
         $user->save();
+      } else {
+        runNightly();
       }
     }
 
@@ -132,6 +134,10 @@ class Acquireachievables_Task
         return $user->achievements()->get();
     }
 
+    public function getUsers(){
+        return $user->get();
+    }
+
     public function unearned($achievements)
     {
         $array = array();
@@ -146,6 +152,15 @@ class Acquireachievables_Task
         }
         else {
           return Achievement::with('requirements')->all();
+        }
+    }
+
+    public function runNightly(){
+        $users = getUsers();
+
+        foreach($users as $user)
+        {
+            run($user->id);
         }
     }
 
