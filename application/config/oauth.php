@@ -42,6 +42,6 @@ return array(
      *
      * @var string
      */
-    'callback' => 'http://localhost/hipst-a-graph/public/oauth/callback'
+    'callback' => 'http://hipsta2.pagodabox.com/oauth/callback'
 
 );
