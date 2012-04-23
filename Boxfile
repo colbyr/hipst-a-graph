@@ -22,5 +22,6 @@ web1:
     - "php artisan migrate:install"
     - "php artisan migrate"
   after_deploy:
+    - "php artisan addachievements"
     - "rm -f storage/cache/*"
     - "rm -f storage/views/*"
