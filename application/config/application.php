@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://hipsta2.pagodabox.com/public',
+	'url' => 'http://hipsta2.pagodabox.com/',
 
 	/*
 	|--------------------------------------------------------------------------
