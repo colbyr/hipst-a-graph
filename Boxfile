@@ -25,3 +25,8 @@ web1:
     - "php artisan addachievements"
     - "rm -f storage/cache/*"
     - "rm -f storage/views/*"
+
+worker1:
+  name: addachievements
+  type: php
+  exec: php application/workers/addchievements.php"
