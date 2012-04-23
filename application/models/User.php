@@ -94,6 +94,7 @@ class User extends Aware
             $this->last_name = $profile->last_name;
             $this->gender = $profile->gender;
             $this->avatar_url = $profile->image_url_75x75;
+            Event::fire('hipsta.new_user', array($this->id));
             return true;
         } catch (OAuthException $e) {
             Log::error($e->getMessage());

@@ -163,13 +163,4 @@ class Acquireachievables_Task
             run($user->id);
         }
     }
-
-    // public function buildArray($unearned)
-    // {
-    //     foreach ($unearned as $achievement) 
-    //     {
-            
-    //     }
-    // }
-
 }
