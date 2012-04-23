@@ -29,4 +29,4 @@ web1:
 worker1:
   name: addachievements
   type: php
-  exec: php application/workers/addchievements.php"
+  exec: "php application/workers/addchievements.php"
