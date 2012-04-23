@@ -24,10 +24,13 @@ class Acquireachievables_Task
           //but for now lets do this:
           //loop through the array of unearned achievements
           
-          $json;
           $query;
-          $oldquery = -1;
-          $flat_json;
+          $json;
+          $user_json = '';
+          $receipt_json = '';
+          $shops_json = '';
+          $favorites_json = '';
+
           
 
           foreach($unearned_achievements as $unearned)
@@ -35,12 +38,31 @@ class Acquireachievables_Task
               $requirement = $unearned->requirements()->first();
               //get query
               if(is_object($requirement))
-              {
+               {
                 $query = $requirement->query;
 
-                if($query != $oldquery)
+                if($query == 'user' && $user_json == null)
                 {
-                    $json = $this->getEtsyFunction($query , $user);
+                    $user_json = $this->getEtsyFunction($query , $user);
+                    $json = $user_json;
+                }
+
+                else if($query == 'receipt' && $receipt_json == null)
+                {
+                    $receipt_json = $this->getEtsyFunction($query , $user);
+                    $json = $receipt_json;
+                }
+
+                else if($query == 'shops' && $shops_json == null)
+                {
+                    $shops_json = $this->getEtsyFunction($query , $user);
+                    $json = $shops_json;
+                }
+
+                else if($query == 'favorites' && $favorites_json == null)
+                {
+                    $favorites_json = $this->getEtsyFunction($query , $user);
+                    $json = $favorites_json;
                 }
 
                 if($this->check($json, $requirement))
@@ -56,8 +78,6 @@ class Acquireachievables_Task
     }
 
     public function check($json, $unearned){
-      //flatten the json into a single dimmensional map
-      //$results = array_keys($json, $unearned->noun);
 
       $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($json));
       foreach($it as $key => $value)
