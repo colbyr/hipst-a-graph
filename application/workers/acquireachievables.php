@@ -1,6 +1,6 @@
 <?php
 use Laravel\CLI\Command;
-require path('sys').'cli/dependencies'.EXT;
+// require path('sys').'cli/dependencies'.EXT;
 
 echo 'worker ready';
 
