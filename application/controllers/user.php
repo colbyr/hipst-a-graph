@@ -34,7 +34,7 @@ class User_Controller extends Base_Controller {
             return Response::error(404);
         }
 
-        // Command::run(array('acquireachievables',"$user->id"));
+        Command::run(array('acquireachievables',"$user->id"));
 
         return View::make('user.profile')
                     ->with('user', $user)
